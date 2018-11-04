@@ -1,0 +1,6 @@
+module moa {
+  umbrella header "moa-umbrella.h"
+
+  export *
+  module * { export * }
+}

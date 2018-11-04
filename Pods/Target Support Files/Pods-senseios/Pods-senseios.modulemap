@@ -1,0 +1,6 @@
+module Pods_senseios {
+  umbrella header "Pods-senseios-umbrella.h"
+
+  export *
+  module * { export * }
+}
