@@ -29,11 +29,20 @@ class selectactivitycontroller: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapBlurButton(_:)))
         remarkactivity.addGestureRecognizer(tapGesture)
+        
+        
+        //this part to move the view above the keyboard when keyboard is showed up
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+      
     }
     
     
     func tapBlurButton(_ sender: UITapGestureRecognizer) {
-       self.view.endEditing(true)
+        
+        self.view.endEditing(true)
+       
     }
     
     @IBAction func selectcallaction(_ sender: Any) {
@@ -71,9 +80,9 @@ class selectactivitycontroller: UIViewController {
     }
     
     
-    @IBAction func nextpageaction(_ sender: Any) {
+    @IBAction func nextbutton(_ sender: Any) {
         
-         employeeinfo.activityremark = remarkactivity.text
+        employeeinfo.activityremark = remarkactivity.text
         
         if(!(employeeinfo.activityremark?.isEmpty)! && !(employeeinfo.activity?.isEmpty)!){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -89,6 +98,36 @@ class selectactivitycontroller: UIViewController {
             
             showToast(message: "Pls select activity and insert your remark")
         }
+    }
+   
+    
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let loginbuttony = remarkactivity.frame.origin.y
+            let framey = view.frame.size.height
+            let distancemove = framey - (loginbuttony)-(keyboardRectangle.height)
+            view.frame.origin.y =  -distancemove
+            
+            print(loginbuttony)
+            return
+        }
+        
+        
         
     }
+    
+    @objc func keyboardWillHide(notification: NSNotification){
+        print("keyboardWillHide")
+        
+        view.frame.origin.y = 0
+    }
+    
+  
+    
+    
 }
