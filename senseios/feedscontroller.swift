@@ -37,7 +37,7 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         cell.staffid.text = listemployee![indexPath.row].staffid
         cell.division.text = listemployee![indexPath.row].division
            cell.email.text = listemployee![indexPath.row].email
-        fetchrating(email: listemployee![indexPath.row].email!,indexrow: indexPath)
+        fetchrating(email: listemployee![indexPath.row].email!,cellrating:cell.averagerating,cellcount: cell.numberofraters)
         
         
         
@@ -82,6 +82,14 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+        let useremail = Auth.auth().currentUser?.email
+        let clickemail = listemployee![indexPath.row].email
+        
+        if((useremail?.elementsEqual(clickemail!))!){
+            
+            showToast(message: "U cannot rate your self")
+        }else{
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "selectactivity") as! selectactivitycontroller
@@ -90,6 +98,8 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         initialViewController2.employeeinfo = listemployee![indexPath.row]
         
         self.navigationController?.pushViewController(initialViewController2, animated: true)
+            
+        }
     }
     
     
@@ -204,8 +214,10 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
     }
     
+    //fetch rating for every cell appear
     
-    func fetchrating(email:String,indexrow:IndexPath){
+    
+    func fetchrating(email:String,cellrating:UILabel,cellcount:UILabel){
         
         let parameters = ["email" : email  ]
         
@@ -227,6 +239,7 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         urlrequest.httpMethod = "GET"
         
         var rating:String = "100"
+        var numberofraters:String = "0"
         //execute the request
         
         let task = URLSession.shared.dataTask(with: urlrequest){(data,response,error)  in
@@ -239,13 +252,15 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
                     
                   
                         rating = json["average"] as! String
-                        print(json["average"] as! String)
+                    numberofraters = json["numberofrater"] as! String
+                  
                     DispatchQueue.main.async {
                        
-                        let cell = self.employeetable.dequeueReusableCell(withIdentifier: "employeecell", for: indexrow) as! employeecell
+                      
                      
                         
-                        cell.averagerating.text = rating
+                        cellrating.text = rating
+                        cellcount.text = numberofraters
                     }
                     
                     

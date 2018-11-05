@@ -13,7 +13,7 @@ class menucontroller2: UIViewController,UITableViewDataSource,UITableViewDelegat
   
     @IBOutlet weak var profileimage: UIImageView!
     
-    var tableitem = ["Home","Feeds","Profile","Setting","Maps","Sign Out"];
+    var tableitem = ["Home","Search","Profile","Setting","Maps","Sign Out"];
     
 
     override func viewDidLoad() {
@@ -22,8 +22,10 @@ class menucontroller2: UIViewController,UITableViewDataSource,UITableViewDelegat
         
       
         
-        profileimage.image = UIImage(named: "ProfileH")
+     
         profileimage.layer.cornerRadius = 50
+        
+        loadimageprofile()
 
     }
     
@@ -62,5 +64,30 @@ class menucontroller2: UIViewController,UITableViewDataSource,UITableViewDelegat
         
     }
 
+    
+    func loadimageprofile(){
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        profileimage?.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.RawValue(UInt8(UIViewAutoresizing.flexibleBottomMargin.rawValue) | UInt8(UIViewAutoresizing.flexibleHeight.rawValue) | UInt8(UIViewAutoresizing.flexibleRightMargin.rawValue) | UInt8(UIViewAutoresizing.flexibleLeftMargin.rawValue) | UInt8(UIViewAutoresizing.flexibleTopMargin.rawValue) | UInt8(UIViewAutoresizing.flexibleWidth.rawValue)))
+        profileimage?.contentMode = UIViewContentMode.scaleAspectFit
+        
+        
+        let islandRef = storageRef.child("senseprofile/"+(Auth.auth().currentUser?.uid)!+".jpg")
+        
+        islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                // Uh-oh, an error occurred!
+                print(error.localizedDescription)
+                
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                
+                self.profileimage?.image = image
+            }
+        }
+    }
 
 }

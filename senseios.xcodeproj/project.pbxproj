@@ -21,6 +21,7 @@
 		303906272189E88100E163FA /* employeecell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303906252189E88100E163FA /* employeecell.swift */; };
 		303906282189E88100E163FA /* employeecell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303906252189E88100E163FA /* employeecell.swift */; };
 		3039062A218A86DB00E163FA /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30390629218A86DB00E163FA /* libSDWebImage.a */; };
+		305A9F192190620C0004C77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 305A9F182190620C0004C77A /* Assets.xcassets */; };
 		30938821216AE5FC0070A17C /* mapscontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30938820216AE5FC0070A17C /* mapscontroller.swift */; };
 		30C41688216459010056645C /* menucell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C41687216459010056645C /* menucell.swift */; };
 		30C4168A216477E20056645C /* profilecontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C41689216477E20056645C /* profilecontroller.swift */; };
@@ -29,7 +30,6 @@
 		30D3C1A8215C9870008D9904 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3C1A7215C9870008D9904 /* AppDelegate.swift */; };
 		30D3C1AA215C9870008D9904 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3C1A9215C9870008D9904 /* ViewController.swift */; };
 		30D3C1AD215C9870008D9904 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D3C1AB215C9870008D9904 /* Main.storyboard */; };
-		30D3C1AF215C9871008D9904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30D3C1AE215C9871008D9904 /* Assets.xcassets */; };
 		30D3C1B2215C9871008D9904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D3C1B0215C9871008D9904 /* LaunchScreen.storyboard */; };
 		30D3C1BD215C9872008D9904 /* senseiosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3C1BC215C9872008D9904 /* senseiosTests.swift */; };
 		30D3C1C8215C9872008D9904 /* senseiosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3C1C7215C9872008D9904 /* senseiosUITests.swift */; };
@@ -72,6 +72,7 @@
 		303906212189E06D00E163FA /* employeemodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeemodel.swift; sourceTree = "<group>"; };
 		303906252189E88100E163FA /* employeecell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeecell.swift; sourceTree = "<group>"; };
 		30390629218A86DB00E163FA /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		305A9F182190620C0004C77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30938820216AE5FC0070A17C /* mapscontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapscontroller.swift; sourceTree = "<group>"; };
 		30C41687216459010056645C /* menucell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menucell.swift; sourceTree = "<group>"; };
 		30C41689216477E20056645C /* profilecontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilecontroller.swift; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		30D3C1A7215C9870008D9904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30D3C1A9215C9870008D9904 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		30D3C1AC215C9870008D9904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		30D3C1AE215C9871008D9904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30D3C1B1215C9871008D9904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30D3C1B3215C9871008D9904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30D3C1B8215C9872008D9904 /* senseiosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = senseiosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,8 +168,8 @@
 				30D3C1A7215C9870008D9904 /* AppDelegate.swift */,
 				30D3C1A9215C9870008D9904 /* ViewController.swift */,
 				30D3C1AB215C9870008D9904 /* Main.storyboard */,
-				30D3C1AE215C9871008D9904 /* Assets.xcassets */,
 				30D3C1B0215C9871008D9904 /* LaunchScreen.storyboard */,
+				305A9F182190620C0004C77A /* Assets.xcassets */,
 				30D3C1B3215C9871008D9904 /* Info.plist */,
 				30D3C1D5215C98CA008D9904 /* boilerplate-Bridging-Header.h */,
 				30D3C1DB215C9ACF008D9904 /* homecontroller.swift */,
@@ -343,7 +343,7 @@
 			files = (
 				30D3C1B2215C9871008D9904 /* LaunchScreen.storyboard in Resources */,
 				3039061D21899BEA00E163FA /* GoogleService-Info.plist in Resources */,
-				30D3C1AF215C9871008D9904 /* Assets.xcassets in Resources */,
+				305A9F192190620C0004C77A /* Assets.xcassets in Resources */,
 				30D3C1AD215C9870008D9904 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

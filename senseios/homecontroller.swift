@@ -60,6 +60,10 @@ class homecontroller: UIViewController {
     }
     
 
+    @IBAction func gotosearch(_ sender: Any) {
+         self.revealViewController()?.rearViewController.performSegue(withIdentifier: "Search", sender: self.revealViewController()?.rearViewController)
+        
+    }
 }
 
 
