@@ -12,6 +12,7 @@ import Firebase
 
 class LoginController: UIViewController {
 
+    @IBOutlet var popoverreset: UIView!
     @IBOutlet weak var usernametext: UITextField!
     
     @IBOutlet weak var passwordtext: UITextField!
@@ -51,7 +52,10 @@ class LoginController: UIViewController {
      
     }
     
-    
+    func emailcallback(){
+        
+        
+    }
 
     @IBAction func loginactioN(_ sender: Any) {
         
@@ -170,6 +174,48 @@ class LoginController: UIViewController {
         Auth.auth().removeStateDidChangeListener(handle!)
     }
 
+    @IBOutlet weak var emailreset: UITextField!
+    
+    @IBAction func clickrestbutton(_ sender: Any) {
+        
+        self.view.addSubview(popoverreset)
+        popoverreset.layer.cornerRadius = 10
+        popoverreset.center = passwordtext.center
+        
+    }
+    @IBAction func sentresetaction(_ sender: Any) {
+        let emailtoreset = emailreset.text
+        
+        if(!(emailtoreset?.isEmpty)!){
+            Auth.auth().sendPasswordReset(withEmail: emailtoreset!) { error in
+                // Your code here
+                if(error != nil){
+                 
+                     self.showToast(message: error.debugDescription)
+                    
+                }else{
+                    
+                    
+                       self.showToast(message: "Reset password email has been sent")
+                    self.popoverreset.removeFromSuperview()
+                }
+            }
+            
+            
+            
+        }
+        else{
+            
+            showToast(message: "Pls Enter your email address")
+        }
+    }
+    
+    @IBAction func closedpopreset(_ sender: Any) {
+        
+         self.popoverreset.removeFromSuperview()
+    }
+    
+    
 }
 extension UIViewController {
     

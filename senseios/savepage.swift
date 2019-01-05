@@ -11,26 +11,37 @@ import Firebase
 
 class savepage: UIViewController {
     
+    
+    
+    @IBOutlet weak var desc: UILabel!
+    
+    
     @IBOutlet weak var bottomconstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var buttonsave: UIButton!
  
+    @IBOutlet var popoversuccess: UIView!
     @IBOutlet weak var ratingremark: UITextView!
     @IBOutlet weak var smileyimage: UIImageView!
     
     var rating:String = ""
     var employeeinfo:employeemodel = employeemodel()
+    let blureffect = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        buttonsave.layer.cornerRadius = 10
             
-            smileyimage.image = UIImage(named:rating)
+        smileyimage.image = UIImage(named:rating)
         let myColor = UIColor.black
         ratingremark.layer.borderColor = myColor.cgColor
         ratingremark.layer.borderWidth = 1.0
         
         ratingremark.layer.cornerRadius = 5
+        
+        setdesc(rating: rating)
+       
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
@@ -40,6 +51,34 @@ class savepage: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tabtextfield(_:)))
         ratingremark.addGestureRecognizer(tapGesture)
         
+        
+        blureffect.backgroundColor = UIColor(white: 1, alpha: 0.8)
+        blureffect.frame = view.bounds
+        
+        popover.setCellShadow()
+        popoversuccess.setCellShadow()
+        
+    }
+    
+    
+    func setdesc(rating:String){
+        
+        if(rating == "1" || rating == "2" || rating == "3" || rating == "4" || rating == "4" || rating == "5" || rating == "6"){
+            
+            desc.text = "I am sorry to disappoint you. I would love to know how can I improve on what I am doing?"
+        }
+        
+        
+        if(rating == "7" || rating == "8" ){
+            
+            desc.text = "Thanks for taking the time to share your feedback with me. If I could do just one thing to make you extremely satisfied, what would it be?"
+        }
+        
+        
+        if(rating == "9" || rating == "10" ){
+            
+            desc.text = "Awesome, thanks for your feedback! Would you tell me why you feel that way?"
+        }
     }
     
     
@@ -80,7 +119,21 @@ class savepage: UIViewController {
     }
     
     
+    @IBOutlet var popover: UIView!
     
+    @IBAction func confirmaction(_ sender: Any) {
+        
+        let ratingremarkstr = ratingremark.text
+        
+         updaterating(employeename: employeeinfo.name!, division: employeeinfo.division!, staffid: employeeinfo.staffid!, email: employeeinfo.email!, uid: employeeinfo.uid!, activity: employeeinfo.activity!, activityremark: employeeinfo.activityremark!, rating: employeeinfo.rating!, ratingremark: ratingremarkstr!, updatedby: (Auth.auth().currentUser?.email)!)
+    }
+    
+    
+    @IBAction func cancelaction(_ sender: Any) {
+        
+        popover.removeFromSuperview()
+        blureffect.removeFromSuperview()
+    }
     @IBAction func saveaction(_ sender: Any) {
         
         let ratingremarkstr = ratingremark.text
@@ -88,9 +141,14 @@ class savepage: UIViewController {
 //        ratingremark.text = "\(employeeinfo.name) \(employeeinfo.email) \(employeeinfo.staffid) \(employeeinfo.uid) \(employeeinfo.rating)"
 //
         if(!(ratingremarkstr?.isEmpty)!){
+            
+            self.view.addSubview(blureffect)
+            self.view.addSubview(popover)
+            popover.center = view.center
+           
+           
 
-            updaterating(employeename: employeeinfo.name!, division: employeeinfo.division!, staffid: employeeinfo.staffid!, email: employeeinfo.email!, uid: employeeinfo.uid!, activity: employeeinfo.activity!, activityremark: employeeinfo.activityremark!, rating: employeeinfo.rating!, ratingremark: ratingremarkstr!, updatedby: (Auth.auth().currentUser?.email)!)
-
+         
 
         }
         
@@ -163,11 +221,16 @@ class savepage: UIViewController {
                     
                     DispatchQueue.main.async {
                         
-                        if(result == "Rating Sucessfully Submitted"){
+                        if(result.elementsEqual("Rating Sucessfully Submitted")){
                             
-                            self.showToast(message: "Sucess")
+                         
+                            self.view.addSubview(self.blureffect)
+                            self.view.addSubview(self.popoversuccess)
+                            self.popoversuccess.center = self.view.center
                             
-                            self.revealViewController()?.rearViewController.performSegue(withIdentifier: "Search", sender: self.revealViewController()?.rearViewController)
+                             self.revealViewController()?.rearViewController.performSegue(withIdentifier: "Search", sender: self.revealViewController()?.rearViewController)
+                            
+                          
                         }else{
                             
                             self.showToast(message: "Failed")
@@ -197,6 +260,15 @@ class savepage: UIViewController {
         task.resume()
         
         
+    }
+    
+    
+    @IBAction func gotosearchpage(_ sender: Any) {
+        
+        self.revealViewController()?.rearViewController.performSegue(withIdentifier: "Search", sender: self.revealViewController()?.rearViewController)
+        
+            popoversuccess.removeFromSuperview()
+        blureffect.removeFromSuperview()
     }
     
    

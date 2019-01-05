@@ -13,7 +13,7 @@ class menucontroller2: UIViewController,UITableViewDataSource,UITableViewDelegat
   
     @IBOutlet weak var profileimage: UIImageView!
     
-    var tableitem = ["Home","Search","Profile","Setting","Maps","Sign Out"];
+    var tableitem = ["Home","Search","Profile","Generate QR","Maps","Sign Out"];
     
 
     override func viewDidLoad() {
@@ -51,9 +51,14 @@ class menucontroller2: UIViewController,UITableViewDataSource,UITableViewDelegat
             
             try! Auth.auth().signOut()
             
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "startpage") as! startpagecontroller
             
             
-            self.performSegue(withIdentifier: tableitem[indexPath.row], sender: self)
+            
+            self.present(initialViewController2, animated: true)
+            
+          
             
             
       

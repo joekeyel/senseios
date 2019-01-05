@@ -23,6 +23,13 @@
 		3039062A218A86DB00E163FA /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30390629218A86DB00E163FA /* libSDWebImage.a */; };
 		305A9F192190620C0004C77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 305A9F182190620C0004C77A /* Assets.xcassets */; };
 		30938821216AE5FC0070A17C /* mapscontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30938820216AE5FC0070A17C /* mapscontroller.swift */; };
+		30C0362E21DFB68700FAA9C6 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0362D21DFB68700FAA9C6 /* QRScanner.swift */; };
+		30C0363021E02AAF00FAA9C6 /* startpagecontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0362F21E02AAF00FAA9C6 /* startpagecontroller.swift */; };
+		30C0363321E0888800FAA9C6 /* employeesearchcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0363121E0888800FAA9C6 /* employeesearchcell.swift */; };
+		30C0363421E0888800FAA9C6 /* employeesearchcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C0363221E0888800FAA9C6 /* employeesearchcell.xib */; };
+		30C0363621E09AFE00FAA9C6 /* qrgeneratorcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0363521E09AFE00FAA9C6 /* qrgeneratorcontroller.swift */; };
+		30C0363821E0A0E000FAA9C6 /* qrgeneratorimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0363721E0A0E000FAA9C6 /* qrgeneratorimage.swift */; };
+		30C0363E21E0C90600FAA9C6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0363D21E0C90600FAA9C6 /* Extension.swift */; };
 		30C41688216459010056645C /* menucell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C41687216459010056645C /* menucell.swift */; };
 		30C4168A216477E20056645C /* profilecontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C41689216477E20056645C /* profilecontroller.swift */; };
 		30C4168C216478490056645C /* feedscontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4168B216478490056645C /* feedscontroller.swift */; };
@@ -74,6 +81,13 @@
 		30390629218A86DB00E163FA /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		305A9F182190620C0004C77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30938820216AE5FC0070A17C /* mapscontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapscontroller.swift; sourceTree = "<group>"; };
+		30C0362D21DFB68700FAA9C6 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		30C0362F21E02AAF00FAA9C6 /* startpagecontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = startpagecontroller.swift; sourceTree = "<group>"; };
+		30C0363121E0888800FAA9C6 /* employeesearchcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeesearchcell.swift; sourceTree = "<group>"; };
+		30C0363221E0888800FAA9C6 /* employeesearchcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = employeesearchcell.xib; sourceTree = "<group>"; };
+		30C0363521E09AFE00FAA9C6 /* qrgeneratorcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrgeneratorcontroller.swift; sourceTree = "<group>"; };
+		30C0363721E0A0E000FAA9C6 /* qrgeneratorimage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrgeneratorimage.swift; sourceTree = "<group>"; };
+		30C0363D21E0C90600FAA9C6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		30C41687216459010056645C /* menucell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menucell.swift; sourceTree = "<group>"; };
 		30C41689216477E20056645C /* profilecontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilecontroller.swift; sourceTree = "<group>"; };
 		30C4168B216478490056645C /* feedscontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedscontroller.swift; sourceTree = "<group>"; };
@@ -160,32 +174,39 @@
 		30D3C1A6215C9870008D9904 /* senseios */ = {
 			isa = PBXGroup;
 			children = (
+				30D3C1A7215C9870008D9904 /* AppDelegate.swift */,
+				305A9F182190620C0004C77A /* Assets.xcassets */,
+				30D3C1D5215C98CA008D9904 /* boilerplate-Bridging-Header.h */,
 				301DAB2B218C247300F7D57E /* DLRadioButton.h */,
 				301DAB2A218C247300F7D57E /* DLRadioButton.m */,
+				303906252189E88100E163FA /* employeecell.swift */,
+				303906212189E06D00E163FA /* employeemodel.swift */,
+				30C4168B216478490056645C /* feedscontroller.swift */,
 				3039061C21899BEA00E163FA /* GoogleService-Info.plist */,
+				30D3C1DB215C9ACF008D9904 /* homecontroller.swift */,
+				30C0362F21E02AAF00FAA9C6 /* startpagecontroller.swift */,
+				30D3C1B3215C9871008D9904 /* Info.plist */,
+				30D3C1B0215C9871008D9904 /* LaunchScreen.storyboard */,
+				300E0435215DB8E200FB4EF5 /* LoginController.swift */,
+				30D3C1AB215C9870008D9904 /* Main.storyboard */,
+				30938820216AE5FC0070A17C /* mapscontroller.swift */,
+				30C41687216459010056645C /* menucell.swift */,
+				30D3C1DF215CA311008D9904 /* menucontroller2.swift */,
+				30C41689216477E20056645C /* profilecontroller.swift */,
+				30C0362D21DFB68700FAA9C6 /* QRScanner.swift */,
+				300B327721888569000051EF /* RegisterController.swift */,
+				30FE8A9D218E8F3300D7F830 /* savepage.swift */,
+				300268AD218D77BE00D18121 /* selectactivitycontroller.swift */,
+				30C0363521E09AFE00FAA9C6 /* qrgeneratorcontroller.swift */,
+				30FE8A9B218E8C0000D7F830 /* selectsmiley.swift */,
+				30C4168D216478C70056645C /* settingcontroller.swift */,
 				30D3C1D6215C98CB008D9904 /* SWRevealViewController.h */,
 				30D3C1D7215C98CB008D9904 /* SWRevealViewController.m */,
-				30D3C1A7215C9870008D9904 /* AppDelegate.swift */,
 				30D3C1A9215C9870008D9904 /* ViewController.swift */,
-				30D3C1AB215C9870008D9904 /* Main.storyboard */,
-				30D3C1B0215C9871008D9904 /* LaunchScreen.storyboard */,
-				305A9F182190620C0004C77A /* Assets.xcassets */,
-				30D3C1B3215C9871008D9904 /* Info.plist */,
-				30D3C1D5215C98CA008D9904 /* boilerplate-Bridging-Header.h */,
-				30D3C1DB215C9ACF008D9904 /* homecontroller.swift */,
-				30D3C1DF215CA311008D9904 /* menucontroller2.swift */,
-				300E0435215DB8E200FB4EF5 /* LoginController.swift */,
-				30C41687216459010056645C /* menucell.swift */,
-				30C41689216477E20056645C /* profilecontroller.swift */,
-				30C4168B216478490056645C /* feedscontroller.swift */,
-				30C4168D216478C70056645C /* settingcontroller.swift */,
-				30938820216AE5FC0070A17C /* mapscontroller.swift */,
-				300B327721888569000051EF /* RegisterController.swift */,
-				303906212189E06D00E163FA /* employeemodel.swift */,
-				303906252189E88100E163FA /* employeecell.swift */,
-				300268AD218D77BE00D18121 /* selectactivitycontroller.swift */,
-				30FE8A9B218E8C0000D7F830 /* selectsmiley.swift */,
-				30FE8A9D218E8F3300D7F830 /* savepage.swift */,
+				30C0363121E0888800FAA9C6 /* employeesearchcell.swift */,
+				30C0363221E0888800FAA9C6 /* employeesearchcell.xib */,
+				30C0363721E0A0E000FAA9C6 /* qrgeneratorimage.swift */,
+				30C0363D21E0C90600FAA9C6 /* Extension.swift */,
 			);
 			path = senseios;
 			sourceTree = "<group>";
@@ -344,6 +365,7 @@
 				30D3C1B2215C9871008D9904 /* LaunchScreen.storyboard in Resources */,
 				3039061D21899BEA00E163FA /* GoogleService-Info.plist in Resources */,
 				305A9F192190620C0004C77A /* Assets.xcassets in Resources */,
+				30C0363421E0888800FAA9C6 /* employeesearchcell.xib in Resources */,
 				30D3C1AD215C9870008D9904 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +474,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C0363621E09AFE00FAA9C6 /* qrgeneratorcontroller.swift in Sources */,
 				30D3C1DC215C9ACF008D9904 /* homecontroller.swift in Sources */,
+				30C0363321E0888800FAA9C6 /* employeesearchcell.swift in Sources */,
 				301DAB2C218C247400F7D57E /* DLRadioButton.m in Sources */,
 				30D3C1E0215CA311008D9904 /* menucontroller2.swift in Sources */,
 				303906222189E06D00E163FA /* employeemodel.swift in Sources */,
@@ -463,12 +487,16 @@
 				30D3C1A8215C9870008D9904 /* AppDelegate.swift in Sources */,
 				30C4168C216478490056645C /* feedscontroller.swift in Sources */,
 				30D3C1D8215C98CB008D9904 /* SWRevealViewController.m in Sources */,
+				30C0363821E0A0E000FAA9C6 /* qrgeneratorimage.swift in Sources */,
 				300268AE218D77BE00D18121 /* selectactivitycontroller.swift in Sources */,
+				30C0363E21E0C90600FAA9C6 /* Extension.swift in Sources */,
 				300B327821888569000051EF /* RegisterController.swift in Sources */,
 				30FE8A9E218E8F3300D7F830 /* savepage.swift in Sources */,
 				30C41688216459010056645C /* menucell.swift in Sources */,
+				30C0363021E02AAF00FAA9C6 /* startpagecontroller.swift in Sources */,
 				303906262189E88100E163FA /* employeecell.swift in Sources */,
 				300E0436215DB8E200FB4EF5 /* LoginController.swift in Sources */,
+				30C0362E21DFB68700FAA9C6 /* QRScanner.swift in Sources */,
 				30C4168A216477E20056645C /* profilecontroller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

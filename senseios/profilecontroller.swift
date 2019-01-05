@@ -9,9 +9,12 @@
 import UIKit
 import Firebase
 
+
 class profilecontroller: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate{
   
     
+    @IBOutlet weak var profilelabel: UILabel!
+    @IBOutlet weak var uploadbtn: UIButton!
     
     @IBOutlet weak var profileimage: UIImageView!
     
@@ -19,6 +22,13 @@ class profilecontroller: UIViewController,UINavigationControllerDelegate,UIImage
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        uploadbtn.layer.cornerRadius = 5
+        uploadbtn.layer.borderWidth = 1
+        uploadbtn.layer.borderColor = UIColor.black.cgColor
+        
+        profilelabel.layer.cornerRadius = 5
+        profilelabel.layer.borderWidth = 1
+        profilelabel.layer.borderColor = UIColor.black.cgColor
         
         menubutton.target = self.revealViewController()
         menubutton.action = #selector(SWRevealViewController.revealToggle(_:))

@@ -11,47 +11,27 @@ import UIKit
 class homecontroller: UIViewController {
     
     
-    @IBOutlet weak var shopchartbar: UIBarButtonItem!
-    @IBOutlet weak var notificationbar: UIBarButtonItem!
-    
-    @IBOutlet weak var menubutton: UIBarButtonItem!
     
 
+    @IBOutlet weak var getstarted: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+       
 
+        getstarted.layer.cornerRadius = 10
+      
+     
+        let imagebg:UIImage = UIImage(named:"background")!
+        let imagebgresize = resizeToScreenSize(image: imagebg)
         
-        menubutton.target = self.revealViewController()
-        menubutton.action = #selector(SWRevealViewController.revealToggle(_:))
-        self.view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
-        
-        
+       
+        self.view.backgroundColor = UIColor(patternImage:imagebgresize )
         
         //add badge to bar item
         
-        let label = UILabel(frame: CGRect(x: 10, y: -10, width: 20, height: 20))
-        label.layer.borderColor = UIColor.clear.cgColor
-        label.layer.borderWidth = 2
-        label.layer.cornerRadius = label.bounds.size.height / 2
-        label.textAlignment = .center
-        label.layer.masksToBounds = true
-        label.font = label.font.withSize(10)
-        label.textColor = .white
-        label.backgroundColor = .red
-        label.text = "8"
-        
-        
-        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 18, height: 16))
-        rightButton.setBackgroundImage(UIImage(named: "notification"), for: .normal)
-        rightButton.addTarget(self, action: #selector(rightButtonTouched), for: .touchUpInside)
-        rightButton.addSubview(label)
-        
-     
-        
-        // Bar button item
-        let rightBarButtomItem = UIBarButtonItem(customView: rightButton)
-        
-       navigationItem.rightBarButtonItem = rightBarButtomItem
+      
       
         
     }
@@ -64,6 +44,31 @@ class homecontroller: UIViewController {
          self.revealViewController()?.rearViewController.performSegue(withIdentifier: "Search", sender: self.revealViewController()?.rearViewController)
         
     }
+    
+    func resizeToScreenSize(image: UIImage)->UIImage{
+        
+        let screenSize = self.view.bounds.size
+        
+        
+        return resizeImage(image: image, newWidth: screenSize.width)
+    }
+    
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        
+        
+        image.draw(in: CGRect(x: 0, y: 0,width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
 }
 
 

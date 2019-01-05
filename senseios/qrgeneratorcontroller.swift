@@ -8,7 +8,7 @@
 
 import UIKit
 
-class selectactivitycontroller: UIViewController {
+class qrgeneratorcontroller: UIViewController {
 
     @IBOutlet weak var nextpageactivity: UIButton!
     @IBOutlet weak var remarkactivity: UITextView!
@@ -16,6 +16,7 @@ class selectactivitycontroller: UIViewController {
     var employeeinfo:employeemodel = employeemodel()
     
    
+    @IBOutlet weak var menuitem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,11 @@ class selectactivitycontroller: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
+        menuitem.target = self.revealViewController()
+        menuitem.action = #selector(SWRevealViewController.revealToggle(_:))
+        self.view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
       
     }
     
@@ -90,10 +96,11 @@ class selectactivitycontroller: UIViewController {
         if(!(remarkactivity.text?.isEmpty)! && !(employeeinfo.activity?.isEmpty)!){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "selectsmiley") as! selectsmiley
+            let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "qrimage") as! qrgeneratorimage
             
             
-            initialViewController2.employeeinfo = employeeinfo
+            initialViewController2.activity = employeeinfo.activity!
+            initialViewController2.activityremark = remarkactivity.text
             
             self.navigationController?.pushViewController(initialViewController2, animated: true)
         }else{
