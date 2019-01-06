@@ -28,7 +28,7 @@ class selectsmiley: UIViewController {
         view.addSubview(blureffect)
         view.addSubview(noticepopover)
         
-        let question = "Welcome \(String(describing: Auth.auth().currentUser?.email)) to \(String(describing: employeeinfo.name)) Survey Portal!\n Are you happy to work with me in the last engagement?\nPlease rate from 0 (Extremely Difficult) to 10 (Extremely Easy)"
+        let question = "Welcome \( Auth.auth().currentUser!.email ?? "") to \( employeeinfo.name ?? "") Survey Portal!\n Are you happy to work with me in the last engagement?\nPlease rate from 0 (Extremely Difficult) to 10 (Extremely Easy)\n Activity:\(employeeinfo.activity ?? "")\nDescription:\(employeeinfo.activityremark ?? "")"
         
        noticemsg.text = question
         

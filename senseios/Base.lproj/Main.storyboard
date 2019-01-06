@@ -1118,11 +1118,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="df3-sx-xQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="KDI-Py-kaQ">
-                    <rect key="frame" x="0.0" y="0.0" width="307" height="142"/>
+                    <rect key="frame" x="0.0" y="0.0" width="307" height="247"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gI-Oh-YRQ">
-                            <rect key="frame" x="6" y="43" width="296" height="85"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="4gI-Oh-YRQ">
+                            <rect key="frame" x="6" y="43" width="296" height="184"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <string key="text">Welcome ''Hasanul Isyraf Bin Abd Azis'' to My Survey Portal!
 Are you happy to work with me in the last engagement?
