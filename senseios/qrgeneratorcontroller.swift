@@ -37,8 +37,7 @@ class qrgeneratorcontroller: UIViewController {
         
         //this part to move the view above the keyboard when keyboard is showed up
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+      
         
         
         menuitem.target = self.revealViewController()
@@ -48,7 +47,7 @@ class qrgeneratorcontroller: UIViewController {
     }
     
     
-    func tapBlurButton(_ sender: UITapGestureRecognizer) {
+    @objc func tapBlurButton(_ sender: UITapGestureRecognizer) {
         
         self.view.endEditing(true)
        
@@ -131,11 +130,7 @@ class qrgeneratorcontroller: UIViewController {
         
     }
     
-    @objc func keyboardWillHide(notification: NSNotification){
-        print("keyboardWillHide")
-        
-        view.frame.origin.y = 0
-    }
+   
     
   
     

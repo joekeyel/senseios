@@ -17,7 +17,7 @@ class employeemodel: NSObject {
     var regid: String?
     var division: String?
     var imgurl: String?
-    var activity: String?
+    var activity: String? = ""
     var activityremark: String?
     var rating: String?
     var ratingremark: String?

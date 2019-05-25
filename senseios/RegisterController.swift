@@ -29,8 +29,7 @@ class RegisterController: UIViewController {
         
         iconimage.image = UIImage(named:"react")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+      
     }
     
 
@@ -101,11 +100,7 @@ class RegisterController: UIViewController {
         
     }
     
-    @objc func keyboardWillHide(notification: NSNotification){
-        print("keyboardWillHide")
-        
-        view.frame.origin.y = 0
-    }
+   
     
     //this is when user tap to dismiss keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

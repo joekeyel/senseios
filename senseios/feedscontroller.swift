@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
-import moa
+
 import AVFoundation
+
 
 
 
@@ -25,6 +26,9 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var employeetable: UITableView!
     
     @IBOutlet weak var searchbtn: UIButton!
+   
+    
+    
     
     
     var listemployee:[employeemodel]? = []
@@ -47,9 +51,16 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
          cell2.staffid.text = listemployee![indexPath.row].staffid
         
         
-         cell2.division.text = listemployee![indexPath.row].division
+        cell2.division.text = "Division:\(listemployee![indexPath.row].division ?? "")"
         
          cell2.email.text = listemployee![indexPath.row].email
+        
+        cell2.rateUser.tag = indexPath.row
+        cell2.rateUser.addTarget(self, action: #selector(RateUserAction), for: .touchUpInside)
+        
+        
+        cell2.showRewardBtn.tag = indexPath.row
+        cell2.showRewardBtn.addTarget(self, action: #selector(ShowUserReward), for: .touchUpInside)
         
         fetchrating(email: listemployee![indexPath.row].email!,cellrating:cell2.average,cellcount: cell2.totalraters)
         
@@ -72,19 +83,21 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
         islandRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
-                // Uh-oh, an error occurred!
+            
                 print(error.localizedDescription)
                 
+                 let image = UIImage(named: "9")
+                imageviewe?.image = image
+                
             } else {
-                // Data for "images/island.jpg" is returned
+               
                 let image = UIImage(data: data!)
                 
                 imageviewe?.image = image
             }
         }
         
-        //using firebase UI to view image directly from firebase referrence ui
-         // imageviewe?.sd_setImage(with: islandRef)
+    
         
 
         
@@ -95,26 +108,7 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         return 1
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
-        let useremail = Auth.auth().currentUser?.email
-        let clickemail = listemployee![indexPath.row].email
-        
-        if((useremail?.elementsEqual(clickemail!))!){
-            
-            showToast(message: "U cannot rate your self")
-        }else{
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "selectactivity") as! selectactivitycontroller
-        
-        
-        initialViewController2.employeeinfo = listemployee![indexPath.row]
-        
-        self.navigationController?.pushViewController(initialViewController2, animated: true)
-            
-        }
-    }
+    
     
     
     
@@ -124,6 +118,8 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         super.viewDidLoad()
      
      
+       
+      
         
         checkuserexist(email:    (Auth.auth().currentUser?.email)!, uid:    (Auth.auth().currentUser?.uid)!)
       
@@ -146,6 +142,9 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         searchbtn.layer.borderColor = UIColor.black.cgColor
         
         
+        fetchsummary(query:(Auth.auth().currentUser?.email)!)
+        
+        
     }
     
     
@@ -163,7 +162,59 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         }
     }
     
+    
+    @objc func RateUserAction(sender: UIButton!) {
+        
+        
+        let objectEmployee = listemployee![sender.tag]
+        
+        let useremail = Auth.auth().currentUser?.email
+        let clickemail = objectEmployee.email
+        
+        if((useremail?.elementsEqual(clickemail!))!){
+            
+            showToast(message: "U cannot rate your self")
+        }else{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "selectactivity") as! selectactivitycontroller
+            
+            
+            initialViewController2.employeeinfo = objectEmployee
+            
+            self.navigationController?.pushViewController(initialViewController2, animated: true)
+            
+            //            self.navigationController!.pushViewController(selectactivity2(nibName: "selectactivity2", bundle: nil), animated: true)
+            
+        }
+        
+    }
+    
+    
+    @objc func ShowUserReward(sender: UIButton!) {
+        
+        
+        let objectEmployee = listemployee![sender.tag]
+
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "RewardActivity") as! RewardActivityController
+
+
+            initialViewController2.employeeobject = objectEmployee
+
+            self.navigationController?.pushViewController(initialViewController2, animated: true)
+
+        
+            
+      
+        
+    }
+    
     func fetchsummary(query:String){
+        
+      
         
         let parameters = ["query" : query  ]
         
@@ -223,7 +274,7 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
                     }
                     DispatchQueue.main.async {
                         self.employeetable.reloadData()
-//                        self.activitiyindicator.stopAnimating()
+                       
                     }
                     
                 }
@@ -290,10 +341,15 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
                     DispatchQueue.main.async {
                        
                       
-                     
+                        if(Auth.auth().currentUser?.email == email){
                         
-                        cellrating.text = rating
-                        cellcount.text = numberofraters
+                            cellrating.text = "Average:\(rating)"
+                            cellcount.text = "Raters:\(numberofraters)"
+                            
+                        }else{
+                            cellrating.isHidden = true
+                            cellcount.text = "Raters:\(numberofraters)"
+                        }
                     }
                     
                     

@@ -22,6 +22,17 @@
 		303906282189E88100E163FA /* employeecell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303906252189E88100E163FA /* employeecell.swift */; };
 		3039062A218A86DB00E163FA /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30390629218A86DB00E163FA /* libSDWebImage.a */; };
 		305A9F192190620C0004C77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 305A9F182190620C0004C77A /* Assets.xcassets */; };
+		307A51E72293939800348542 /* RewardActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A51E62293939800348542 /* RewardActivityController.swift */; };
+		307A51E92293961E00348542 /* rewardmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A51E82293961E00348542 /* rewardmodel.swift */; };
+		307A51EE2293970A00348542 /* rewardcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A51EC2293970A00348542 /* rewardcell.swift */; };
+		307A51EF2293970A00348542 /* rewardcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307A51ED2293970A00348542 /* rewardcell.xib */; };
+		307A51F22293989D00348542 /* profilecell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A51F02293989D00348542 /* profilecell.swift */; };
+		307A51F32293989D00348542 /* profilecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307A51F12293989D00348542 /* profilecell.xib */; };
+		307A51F52293997C00348542 /* profilecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307A51F42293997C00348542 /* profilecell.xib */; };
+		307A51F822939E2000348542 /* rewardcellheader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A51F622939E2000348542 /* rewardcellheader.swift */; };
+		307A51F922939E2000348542 /* rewardcellheader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307A51F722939E2000348542 /* rewardcellheader.xib */; };
+		307A51FB2294D9C600348542 /* profileCellheader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307A51FA2294D9C600348542 /* profileCellheader.xib */; };
+		307A51FD2294DA0F00348542 /* profileCellheader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A51FC2294DA0F00348542 /* profileCellheader.swift */; };
 		30938821216AE5FC0070A17C /* mapscontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30938820216AE5FC0070A17C /* mapscontroller.swift */; };
 		30C0362E21DFB68700FAA9C6 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0362D21DFB68700FAA9C6 /* QRScanner.swift */; };
 		30C0363021E02AAF00FAA9C6 /* startpagecontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0362F21E02AAF00FAA9C6 /* startpagecontroller.swift */; };
@@ -45,6 +56,8 @@
 		30D3C1E0215CA311008D9904 /* menucontroller2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3C1DF215CA311008D9904 /* menucontroller2.swift */; };
 		30FE8A9C218E8C0000D7F830 /* selectsmiley.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE8A9B218E8C0000D7F830 /* selectsmiley.swift */; };
 		30FE8A9E218E8F3300D7F830 /* savepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE8A9D218E8F3300D7F830 /* savepage.swift */; };
+		30FF4CE221EECE1E00811D66 /* selectactivity2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FF4CE021EECE1E00811D66 /* selectactivity2.swift */; };
+		30FF4CE321EECE1E00811D66 /* selectactivity2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FF4CE121EECE1E00811D66 /* selectactivity2.xib */; };
 		69B1714F5DB0E6712ECAB111 /* libPods-senseios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24E72ED1439C00725573F8 /* libPods-senseios.a */; };
 		7CE5F911FBCAE3F629DCA226 /* libPods-senseiosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75513C02C2449EAC3DE009A /* libPods-senseiosUITests.a */; };
 		84176D619E50CE3CC21A2E07 /* libPods-senseiosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3484171A8E427B50596400AF /* libPods-senseiosTests.a */; };
@@ -80,6 +93,17 @@
 		303906252189E88100E163FA /* employeecell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeecell.swift; sourceTree = "<group>"; };
 		30390629218A86DB00E163FA /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		305A9F182190620C0004C77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		307A51E62293939800348542 /* RewardActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardActivityController.swift; sourceTree = "<group>"; };
+		307A51E82293961E00348542 /* rewardmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardmodel.swift; sourceTree = "<group>"; };
+		307A51EC2293970A00348542 /* rewardcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardcell.swift; sourceTree = "<group>"; };
+		307A51ED2293970A00348542 /* rewardcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = rewardcell.xib; sourceTree = "<group>"; };
+		307A51F02293989D00348542 /* profilecell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilecell.swift; sourceTree = "<group>"; };
+		307A51F12293989D00348542 /* profilecell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = profilecell.xib; sourceTree = "<group>"; };
+		307A51F42293997C00348542 /* profilecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profilecell.xib; sourceTree = "<group>"; };
+		307A51F622939E2000348542 /* rewardcellheader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardcellheader.swift; sourceTree = "<group>"; };
+		307A51F722939E2000348542 /* rewardcellheader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = rewardcellheader.xib; sourceTree = "<group>"; };
+		307A51FA2294D9C600348542 /* profileCellheader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileCellheader.xib; sourceTree = "<group>"; };
+		307A51FC2294DA0F00348542 /* profileCellheader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileCellheader.swift; sourceTree = "<group>"; };
 		30938820216AE5FC0070A17C /* mapscontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapscontroller.swift; sourceTree = "<group>"; };
 		30C0362D21DFB68700FAA9C6 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		30C0362F21E02AAF00FAA9C6 /* startpagecontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = startpagecontroller.swift; sourceTree = "<group>"; };
@@ -111,6 +135,8 @@
 		30D3C1DF215CA311008D9904 /* menucontroller2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menucontroller2.swift; sourceTree = "<group>"; };
 		30FE8A9B218E8C0000D7F830 /* selectsmiley.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectsmiley.swift; sourceTree = "<group>"; };
 		30FE8A9D218E8F3300D7F830 /* savepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savepage.swift; sourceTree = "<group>"; };
+		30FF4CE021EECE1E00811D66 /* selectactivity2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectactivity2.swift; sourceTree = "<group>"; };
+		30FF4CE121EECE1E00811D66 /* selectactivity2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = selectactivity2.xib; sourceTree = "<group>"; };
 		3484171A8E427B50596400AF /* libPods-senseiosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-senseiosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE3CE57F1795D9CF502D068 /* Pods-senseios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-senseios.release.xcconfig"; path = "Pods/Target Support Files/Pods-senseios/Pods-senseios.release.xcconfig"; sourceTree = "<group>"; };
 		9AB64DDC87EECB757C5FC40E /* Pods-senseiosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-senseiosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-senseiosTests/Pods-senseiosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,10 +207,12 @@
 				301DAB2A218C247300F7D57E /* DLRadioButton.m */,
 				303906252189E88100E163FA /* employeecell.swift */,
 				303906212189E06D00E163FA /* employeemodel.swift */,
+				30C0363121E0888800FAA9C6 /* employeesearchcell.swift */,
+				30C0363221E0888800FAA9C6 /* employeesearchcell.xib */,
+				30C0363D21E0C90600FAA9C6 /* Extension.swift */,
 				30C4168B216478490056645C /* feedscontroller.swift */,
 				3039061C21899BEA00E163FA /* GoogleService-Info.plist */,
 				30D3C1DB215C9ACF008D9904 /* homecontroller.swift */,
-				30C0362F21E02AAF00FAA9C6 /* startpagecontroller.swift */,
 				30D3C1B3215C9871008D9904 /* Info.plist */,
 				30D3C1B0215C9871008D9904 /* LaunchScreen.storyboard */,
 				300E0435215DB8E200FB4EF5 /* LoginController.swift */,
@@ -192,21 +220,32 @@
 				30938820216AE5FC0070A17C /* mapscontroller.swift */,
 				30C41687216459010056645C /* menucell.swift */,
 				30D3C1DF215CA311008D9904 /* menucontroller2.swift */,
+				307A51F02293989D00348542 /* profilecell.swift */,
+				307A51F42293997C00348542 /* profilecell.xib */,
 				30C41689216477E20056645C /* profilecontroller.swift */,
+				30C0363521E09AFE00FAA9C6 /* qrgeneratorcontroller.swift */,
+				30C0363721E0A0E000FAA9C6 /* qrgeneratorimage.swift */,
 				30C0362D21DFB68700FAA9C6 /* QRScanner.swift */,
 				300B327721888569000051EF /* RegisterController.swift */,
+				307A51E62293939800348542 /* RewardActivityController.swift */,
+				307A51EC2293970A00348542 /* rewardcell.swift */,
+				307A51ED2293970A00348542 /* rewardcell.xib */,
+				307A51F622939E2000348542 /* rewardcellheader.swift */,
+				307A51FC2294DA0F00348542 /* profileCellheader.swift */,
+				307A51F722939E2000348542 /* rewardcellheader.xib */,
+				307A51FA2294D9C600348542 /* profileCellheader.xib */,
+				307A51E82293961E00348542 /* rewardmodel.swift */,
 				30FE8A9D218E8F3300D7F830 /* savepage.swift */,
+				30FF4CE021EECE1E00811D66 /* selectactivity2.swift */,
+				30FF4CE121EECE1E00811D66 /* selectactivity2.xib */,
 				300268AD218D77BE00D18121 /* selectactivitycontroller.swift */,
-				30C0363521E09AFE00FAA9C6 /* qrgeneratorcontroller.swift */,
 				30FE8A9B218E8C0000D7F830 /* selectsmiley.swift */,
 				30C4168D216478C70056645C /* settingcontroller.swift */,
+				30C0362F21E02AAF00FAA9C6 /* startpagecontroller.swift */,
 				30D3C1D6215C98CB008D9904 /* SWRevealViewController.h */,
 				30D3C1D7215C98CB008D9904 /* SWRevealViewController.m */,
 				30D3C1A9215C9870008D9904 /* ViewController.swift */,
-				30C0363121E0888800FAA9C6 /* employeesearchcell.swift */,
-				30C0363221E0888800FAA9C6 /* employeesearchcell.xib */,
-				30C0363721E0A0E000FAA9C6 /* qrgeneratorimage.swift */,
-				30C0363D21E0C90600FAA9C6 /* Extension.swift */,
+				307A51F12293989D00348542 /* profilecell.xib */,
 			);
 			path = senseios;
 			sourceTree = "<group>";
@@ -264,7 +303,7 @@
 				30D3C1A0215C9870008D9904 /* Sources */,
 				30D3C1A1215C9870008D9904 /* Frameworks */,
 				30D3C1A2215C9870008D9904 /* Resources */,
-				3DAB20725B0ACD1724440FE5 /* [CP] Copy Pods Resources */,
+				C0E60081F2E7E130CEDAE07A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -362,7 +401,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				307A51EF2293970A00348542 /* rewardcell.xib in Resources */,
+				307A51F922939E2000348542 /* rewardcellheader.xib in Resources */,
+				307A51F32293989D00348542 /* profilecell.xib in Resources */,
+				307A51F52293997C00348542 /* profilecell.xib in Resources */,
 				30D3C1B2215C9871008D9904 /* LaunchScreen.storyboard in Resources */,
+				30FF4CE321EECE1E00811D66 /* selectactivity2.xib in Resources */,
+				307A51FB2294D9C600348542 /* profileCellheader.xib in Resources */,
 				3039061D21899BEA00E163FA /* GoogleService-Info.plist in Resources */,
 				305A9F192190620C0004C77A /* Assets.xcassets in Resources */,
 				30C0363421E0888800FAA9C6 /* employeesearchcell.xib in Resources */,
@@ -389,7 +434,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DAB20725B0ACD1724440FE5 /* [CP] Copy Pods Resources */ = {
+		C0E60081F2E7E130CEDAE07A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -400,6 +445,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-senseios/Pods-senseios-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -407,6 +453,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -477,27 +524,34 @@
 				30C0363621E09AFE00FAA9C6 /* qrgeneratorcontroller.swift in Sources */,
 				30D3C1DC215C9ACF008D9904 /* homecontroller.swift in Sources */,
 				30C0363321E0888800FAA9C6 /* employeesearchcell.swift in Sources */,
+				307A51FD2294DA0F00348542 /* profileCellheader.swift in Sources */,
 				301DAB2C218C247400F7D57E /* DLRadioButton.m in Sources */,
 				30D3C1E0215CA311008D9904 /* menucontroller2.swift in Sources */,
 				303906222189E06D00E163FA /* employeemodel.swift in Sources */,
 				30C4168E216478C70056645C /* settingcontroller.swift in Sources */,
+				307A51F22293989D00348542 /* profilecell.swift in Sources */,
+				307A51E92293961E00348542 /* rewardmodel.swift in Sources */,
 				30D3C1AA215C9870008D9904 /* ViewController.swift in Sources */,
 				30FE8A9C218E8C0000D7F830 /* selectsmiley.swift in Sources */,
 				30938821216AE5FC0070A17C /* mapscontroller.swift in Sources */,
 				30D3C1A8215C9870008D9904 /* AppDelegate.swift in Sources */,
 				30C4168C216478490056645C /* feedscontroller.swift in Sources */,
 				30D3C1D8215C98CB008D9904 /* SWRevealViewController.m in Sources */,
+				307A51F822939E2000348542 /* rewardcellheader.swift in Sources */,
 				30C0363821E0A0E000FAA9C6 /* qrgeneratorimage.swift in Sources */,
 				300268AE218D77BE00D18121 /* selectactivitycontroller.swift in Sources */,
+				307A51EE2293970A00348542 /* rewardcell.swift in Sources */,
 				30C0363E21E0C90600FAA9C6 /* Extension.swift in Sources */,
 				300B327821888569000051EF /* RegisterController.swift in Sources */,
 				30FE8A9E218E8F3300D7F830 /* savepage.swift in Sources */,
+				30FF4CE221EECE1E00811D66 /* selectactivity2.swift in Sources */,
 				30C41688216459010056645C /* menucell.swift in Sources */,
 				30C0363021E02AAF00FAA9C6 /* startpagecontroller.swift in Sources */,
 				303906262189E88100E163FA /* employeecell.swift in Sources */,
 				300E0436215DB8E200FB4EF5 /* LoginController.swift in Sources */,
 				30C0362E21DFB68700FAA9C6 /* QRScanner.swift in Sources */,
 				30C4168A216477E20056645C /* profilecontroller.swift in Sources */,
+				307A51E72293939800348542 /* RewardActivityController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,7 +733,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XUR2D2723B;
 				INFOPLIST_FILE = "$(SRCROOT)/senseios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -688,7 +742,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "senseios/boilerplate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -702,7 +756,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XUR2D2723B;
 				INFOPLIST_FILE = "$(SRCROOT)/senseios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -710,7 +764,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = my.com.tm.senseios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "senseios/boilerplate-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -15,7 +15,7 @@ class QRScanner: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         super.viewDidLoad()
        square.layer.borderColor = UIColor.red.cgColor
         square.layer.borderWidth = 2
-        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        if let captureDevice = AVCaptureDevice.default(for: AVMediaType.video){
         
         do
         {
@@ -26,13 +26,13 @@ class QRScanner: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         {
             print ("ERROR")
         }
-        
+        }
         let output = AVCaptureMetadataOutput()
         session.addOutput(output)
         
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         
-        output.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
         
         video = AVCaptureVideoPreviewLayer(session: session)
         video.frame = view.layer.bounds
@@ -49,10 +49,10 @@ class QRScanner: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         {
             if let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject
             {
-                if object.type == AVMetadataObjectTypeQRCode
+                if object.type == AVMetadataObject.ObjectType.qr
                 {
                     
-                    let dataqr : [String] = object.stringValue.components(separatedBy: ",")
+                    let dataqr : [String] = object.stringValue!.components(separatedBy: ",")
                       self.session.stopRunning()
                     if(dataqr.count == 3){
                     employeeobject.activity = dataqr[1]

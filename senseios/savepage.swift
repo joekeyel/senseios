@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 
-class savepage: UIViewController {
+
+class savepage: UIViewController,UITextViewDelegate {
     
     
     
@@ -24,12 +25,21 @@ class savepage: UIViewController {
     @IBOutlet weak var ratingremark: UITextView!
     @IBOutlet weak var smileyimage: UIImageView!
     
+    @IBOutlet weak var okbutton: UIButton!
+    
+    
     var rating:String = ""
     var employeeinfo:employeemodel = employeemodel()
     let blureffect = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ratingremark.delegate = self
+      
+        ratingremark.isUserInteractionEnabled = true
+        ratingremark.text = "Please Double tab to enter remark for your rating"
+         ratingremark.textColor = UIColor.lightGray
 
         buttonsave.layer.cornerRadius = 10
             
@@ -44,8 +54,7 @@ class savepage: UIViewController {
        
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+       
         
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tabtextfield(_:)))
@@ -57,6 +66,10 @@ class savepage: UIViewController {
         
         popover.setCellShadow()
         popoversuccess.setCellShadow()
+        
+        
+      
+        
         
     }
     
@@ -83,31 +96,43 @@ class savepage: UIViewController {
     
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        
-        
+
+
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            
+
             let keyboardRectangle = keyboardFrame.cgRectValue
             let loginbuttony = ratingremark.frame.origin.y
             let framey = view.frame.size.height
             let distancemove = framey - (loginbuttony)-(keyboardRectangle.height)
             view.frame.origin.y =  -distancemove - bottomconstraint.constant
-            
+
             print(loginbuttony)
             return
         }
-        
-        
-        
+
+
+
     }
+
+   
     
-    @objc func keyboardWillHide(notification: NSNotification){
-        print("keyboardWillHide")
-        
-        view.frame.origin.y = 0
-    }
     
-    func tabtextfield(_ sender: UITapGestureRecognizer) {
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y == 0 {
+//                self.view.frame.origin.y -= keyboardSize.height
+//                self.view.frame.origin.y += ratingremark.frame.origin.y/2
+//            }
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        if self.view.frame.origin.y != 0 {
+//            self.view.frame.origin.y = 0
+//        }
+//    }
+    
+    @objc func tabtextfield(_ sender: UITapGestureRecognizer) {
         
         self.view.endEditing(true)
         
@@ -123,6 +148,8 @@ class savepage: UIViewController {
     
     @IBAction func confirmaction(_ sender: Any) {
         
+      okbutton.isEnabled = false
+        
         let ratingremarkstr = ratingremark.text
         
          updaterating(employeename: employeeinfo.name!, division: employeeinfo.division!, staffid: employeeinfo.staffid!, email: employeeinfo.email!, uid: employeeinfo.uid!, activity: employeeinfo.activity!, activityremark: employeeinfo.activityremark!, rating: employeeinfo.rating!, ratingremark: ratingremarkstr!, updatedby: (Auth.auth().currentUser?.email)!)
@@ -136,25 +163,31 @@ class savepage: UIViewController {
     }
     @IBAction func saveaction(_ sender: Any) {
         
+         buttonsave.isEnabled = false
+         self.view.endEditing(true)
+        
         let ratingremarkstr = ratingremark.text
 //
 //        ratingremark.text = "\(employeeinfo.name) \(employeeinfo.email) \(employeeinfo.staffid) \(employeeinfo.uid) \(employeeinfo.rating)"
 //
-        if(!(ratingremarkstr?.isEmpty)!){
+       
+        if((ratingremarkstr?.elementsEqual("Please Double tab to enter remark for your rating"))!){
+            
+             showToast(message: "Pls Insert a remark")
+            
+        }
+        
+        else if((ratingremarkstr?.isEmpty)!){
+            
+            showToast(message: "Pls Insert a remark")
+            
+        }else{
             
             self.view.addSubview(blureffect)
             self.view.addSubview(popover)
+          
             popover.center = view.center
-           
-           
-
-         
-
-        }
-        
-        else{
             
-            showToast(message: "Pls Insert a remark")
             
         }
         
@@ -164,6 +197,8 @@ class savepage: UIViewController {
     
   //updaterating( String employeename,String division,String staffid,String email,String uid,String activity,String activityremark,String rating,String ratingremark,String updatedby)
     func updaterating(employeename:String,division:String,staffid:String,email:String,uid:String,activity:String,activityremark:String,rating:String,ratingremark:String,updatedby:String){
+        
+        
         
         let parameters = ["employeename" : employeename,
                           "division": division,
@@ -221,6 +256,9 @@ class savepage: UIViewController {
                     
                     DispatchQueue.main.async {
                         
+                        
+                      
+                        
                         if(result.elementsEqual("Rating Sucessfully Submitted")){
                             
                          
@@ -270,6 +308,17 @@ class savepage: UIViewController {
             popoversuccess.removeFromSuperview()
         blureffect.removeFromSuperview()
     }
-    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if ratingremark.textColor == UIColor.lightGray {
+            ratingremark.text = nil
+            ratingremark.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if ratingremark.text.isEmpty {
+            ratingremark.text = "Please Double tab to enter remark for your rating"
+            ratingremark.textColor = UIColor.lightGray
+        }
+    }
    
 }

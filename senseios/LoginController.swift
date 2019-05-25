@@ -25,6 +25,8 @@ class LoginController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -45,8 +47,8 @@ class LoginController: UIViewController {
 
        //this part to move the view above the keyboard when keyboard is showed up
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
        
         
      
@@ -56,6 +58,14 @@ class LoginController: UIViewController {
         
         
     }
+    
+//    override func viewDidDisappear(_ animated: Bool) {
+//
+//        NotificationCenter.default.removeObserver(NSNotification.Name.UIKeyboardWillHide as NSObject)
+//
+//        NotificationCenter.default.removeObserver(NSNotification.Name.UIKeyboardWillShow as NSObject)
+//
+//    }
 
     @IBAction func loginactioN(_ sender: Any) {
         
@@ -108,30 +118,30 @@ class LoginController: UIViewController {
     }
     
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-      
-        
-         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let loginbuttony = loginbutton.frame.origin.y
-            let framey = view.frame.size.height
-            let distancemove = framey - (loginbuttony)-(keyboardRectangle.height)
-            view.frame.origin.y =  -distancemove
-            
-            print(loginbuttony)
-            return
-        }
-            
-            
-      
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification){
-        print("keyboardWillHide")
-        
-        view.frame.origin.y = 0
-    }
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//
+//
+//         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+//
+//            let keyboardRectangle = keyboardFrame.cgRectValue
+//            let loginbuttony = loginbutton.frame.origin.y
+//            let framey = view.frame.size.height
+//            let distancemove = framey - (loginbuttony)-(keyboardRectangle.height)
+//            view.frame.origin.y =  -distancemove
+//
+//            //print(loginbuttony)
+//            return
+//        }
+//
+//
+//
+//    }
+//
+//    @objc func keyboardWillHide(notification: NSNotification){
+//        print("keyboardWillHide")
+//
+//        view.frame.origin.y = 0
+//    }
     
     //this is when user tap to dismiss keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

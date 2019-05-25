@@ -11,6 +11,7 @@ import UIKit
 class employeesearchcell: UITableViewCell {
     
     
+    @IBOutlet weak var rateUser: UIButton!
     @IBOutlet weak var imageprofile: UIImageView!
     
     @IBOutlet weak var totalraters: UILabel!
@@ -20,6 +21,7 @@ class employeesearchcell: UITableViewCell {
     @IBOutlet weak var staffid: UILabel!
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var showRewardBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

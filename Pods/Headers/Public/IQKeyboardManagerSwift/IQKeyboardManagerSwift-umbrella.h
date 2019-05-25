@@ -1,0 +1,1 @@
+/Users/hasanulisyraf/senseios/Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-umbrella.h

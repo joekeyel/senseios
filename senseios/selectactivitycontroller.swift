@@ -8,25 +8,33 @@
 
 import UIKit
 
-class selectactivitycontroller: UIViewController {
+class selectactivitycontroller: UIViewController,UITextViewDelegate{
 
     @IBOutlet weak var nextpageactivity: UIButton!
     @IBOutlet weak var remarkactivity: UITextView!
+     
     
     var employeeinfo:employeemodel = employeemodel()
     
    
+    @IBOutlet weak var bottom: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+       remarkactivity.delegate = self
         let myColor = UIColor.black
         remarkactivity.layer.borderColor = myColor.cgColor
       remarkactivity.layer.borderWidth = 1.0
        
         remarkactivity.layer.cornerRadius = 5
         
+        
         remarkactivity.isUserInteractionEnabled = true
+        remarkactivity.text = "Please Double tab to enter description of the activity"
+        remarkactivity.textColor = UIColor.lightGray
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapBlurButton(_:)))
         remarkactivity.addGestureRecognizer(tapGesture)
@@ -36,13 +44,14 @@ class selectactivitycontroller: UIViewController {
         
         //this part to move the view above the keyboard when keyboard is showed up
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+      
+        
+        employeeinfo.activity = ""
       
     }
     
     
-    func tapBlurButton(_ sender: UITapGestureRecognizer) {
+    @objc func tapBlurButton(_ sender: UITapGestureRecognizer) {
         
         self.view.endEditing(true)
        
@@ -87,7 +96,21 @@ class selectactivitycontroller: UIViewController {
         
         employeeinfo.activityremark = remarkactivity.text
         
-        if(!(remarkactivity.text?.isEmpty)! && !(employeeinfo.activity?.isEmpty)!){
+        if(remarkactivity.text.isEmpty){
+            
+             showToast(message: "Pls insert your remark")
+            
+        }else if(employeeinfo.activity == ""){
+            
+             showToast(message: "Pls select activity ")
+            
+        }else if(remarkactivity.text.elementsEqual("Please Double tab to enter description of the activity")){
+            
+             showToast(message: "Pls insert your remark")
+            
+        }
+        
+        else{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "selectsmiley") as! selectsmiley
@@ -96,41 +119,65 @@ class selectactivitycontroller: UIViewController {
             initialViewController2.employeeinfo = employeeinfo
             
             self.navigationController?.pushViewController(initialViewController2, animated: true)
-        }else{
             
-            
-            showToast(message: "Pls select activity and insert your remark")
         }
+        
+      
     }
    
     
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        
-        
+
+
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let loginbuttony = remarkactivity.frame.origin.y
+
+            let keyboardRectangle =  keyboardFrame.cgRectValue.height
+            let remarkposition = remarkactivity.frame.origin.y + 50
             let framey = view.frame.size.height
-            let distancemove = framey - (loginbuttony)-(keyboardRectangle.height)
+
+
+            let distancemove = framey - (remarkposition)-(keyboardRectangle)
             view.frame.origin.y =  -distancemove
-            
-            print(loginbuttony)
+
+            print("remark:\(remarkposition)")
+            print("keyboard height\(keyboardRectangle)")
             return
         }
-        
-        
-        
+
+
+
     }
+
+   
     
-    @objc func keyboardWillHide(notification: NSNotification){
-        print("keyboardWillHide")
-        
-        view.frame.origin.y = 0
-    }
     
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y == 0 {
+//                self.view.frame.origin.y -= keyboardSize.height
+//                self.view.frame.origin.y += remarkactivity.frame.origin.y
+//            }
+//        }
+//    }
+//
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        if self.view.frame.origin.y != 0 {
+//            self.view.frame.origin.y = 0
+//        }
+//    }
   
-    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if remarkactivity.textColor == UIColor.lightGray {
+            remarkactivity.text = nil
+            remarkactivity.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if remarkactivity.text.isEmpty {
+            remarkactivity.text = "Please Double tab to enter description of the activity"
+            remarkactivity.textColor = UIColor.lightGray
+        }
+    }
     
 }

@@ -87,6 +87,8 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
+  - iOSDropDown (0.2.7)
+  - IQKeyboardManagerSwift (6.2.0)
   - leveldb-library (1.20)
   - moa (8.0.4)
   - nanopb (0.3.901):
@@ -108,6 +110,8 @@ DEPENDENCIES:
   - FirebaseUI/Storage
   - GoogleMaps
   - GooglePlaces
+  - iOSDropDown
+  - IQKeyboardManagerSwift
   - moa (~> 8.0)
   - SDWebImage (~> 5.0.0-beta3)
 
@@ -129,6 +133,8 @@ SPEC REPOS:
     - GooglePlaces
     - GoogleUtilities
     - GTMSessionFetcher
+    - iOSDropDown
+    - IQKeyboardManagerSwift
     - leveldb-library
     - moa
     - nanopb
@@ -152,12 +158,14 @@ SPEC CHECKSUMS:
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  iOSDropDown: 7a4cfc67d5166f319858747b63cd2f7760c4fb4b
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   moa: 954e2ad962886626d02c3486dd3a7bb5f0052d14
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: e52654ceef9fdc19f4c612d64a5b6d3f05dd81a4
 
-PODFILE CHECKSUM: 826cf6d304436a02ff990dee6d17adb35d852c86
+PODFILE CHECKSUM: 72ffd05c101444aad858c9b1f10ac756f403074f
 
 COCOAPODS: 1.6.0.beta.2

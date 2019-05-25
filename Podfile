@@ -15,6 +15,9 @@ target 'senseios' do
   pod 'SDWebImage','~>5.0.0-beta3'
   pod 'moa', '~> 8.0'
   pod 'FirebaseUI/Storage'
+  pod 'iOSDropDown'
+  pod 'IQKeyboardManagerSwift'
+ 
 
 
   # Pods for boilerplate
