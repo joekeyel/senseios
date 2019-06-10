@@ -21,6 +21,7 @@ class employeemodel: NSObject {
     var activityremark: String?
     var rating: String?
     var ratingremark: String?
+     var position: String?
   
 
 }

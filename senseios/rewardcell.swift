@@ -10,11 +10,13 @@ import UIKit
 
 class rewardcell: UITableViewCell {
     
+    @IBOutlet weak var iconimage: UIImageView!
     @IBOutlet weak var item: UILabel!
     
     @IBOutlet weak var point: UILabel!
     
-    @IBOutlet weak var delete: UIButton!
+    @IBOutlet weak var delete: buttonAdditional!
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

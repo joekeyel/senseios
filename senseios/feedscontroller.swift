@@ -253,7 +253,7 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
                         for summaryfromjson in summaryfromjson {
                             let employeeobject = employeemodel()
                             if let employeename = summaryfromjson["employeename"] as? String,
-                                let email = summaryfromjson["email"] as? String, let staffid = summaryfromjson["staffid"], let division = summaryfromjson["division"], let uid = summaryfromjson["uid"], let regid = summaryfromjson["regid"]{
+                                let email = summaryfromjson["email"] as? String, let staffid = summaryfromjson["staffid"], let division = summaryfromjson["division"], let uid = summaryfromjson["uid"], let regid = summaryfromjson["regid"],let position = summaryfromjson["position"]{
                                 
                                 
                                 
@@ -263,6 +263,7 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
                                 employeeobject.uid = uid as? String
                                 employeeobject.email = email
                                 employeeobject.regid = regid as? String
+                                employeeobject.position = position as? String
                                 
                                 // print(listttobjects.cabinetid!)
                             }

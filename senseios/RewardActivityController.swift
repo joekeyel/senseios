@@ -15,11 +15,18 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
     
     @IBOutlet weak var achievementDropDown: DropDown!
     
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var DateReward: UIDatePicker!
+    
+    @IBOutlet weak var deleteOkbtn: buttonAdditional!
+    
     @IBOutlet weak var numberInput: UITextField!
     @IBOutlet var popovernewAchivement: UIView!
     
     @IBOutlet weak var tablereward: UITableView!
     
+    @IBOutlet var popoverDelete: UIView!
     @IBOutlet weak var cancelNewItemBtn: UIButton!
     @IBOutlet weak var addnewitemBtn: UIButton!
     var employeeobject:employeemodel = employeemodel()
@@ -28,6 +35,9 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
     var rewardlist3:[rewardmodel] = []
     var rewardlist4:[rewardmodel] = []
     var rewardlist5:[rewardmodel] = []
+    
+    var rewardId:String = ""
+    var dateInputStr:String = ""
     
     
     
@@ -38,6 +48,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         
        
         
+        
         fetchreward(email: employeeobject.email!)
         
         blureffect.backgroundColor = UIColor(white: 1, alpha: 0.8)
@@ -47,6 +58,11 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         popovernewAchivement.layer.borderColor = UIColor.black.cgColor
         popovernewAchivement.layer.cornerRadius = 5
         
+        
+            popoverDelete.layer.borderWidth = 1
+        popoverDelete.layer.borderColor = UIColor.black.cgColor
+        
+        popoverDelete.layer.cornerRadius = 5
         achievementDropDown.optionArray = ["Achievement 1","Achievement 2","Achievement 3","Achievement 4"]
         
         //setting up for number only input for textfield
@@ -78,18 +94,21 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         {
             
             rows = rewardlist1.count
+          
         }
         
         if(section == 2)
         {
             
             rows = rewardlist2.count
+            
         }
         
         if(section == 3)
         {
             
             rows = rewardlist3.count
+//
         }
         
         if(section == 4)
@@ -120,6 +139,22 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             cellreward.item.text = rewardlist1[indexPath.row].item
             cellreward.point.text = rewardlist1[indexPath.row].point
             
+            
+            if(employeeobject.position == "editor"){
+            cellreward.delete.indexPath = indexPath.row
+            cellreward.delete.urlString = rewardlist1[indexPath.row].id
+            cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
+            }
+            else{
+                
+                cellreward.delete.isHidden = true
+            }
+            if(rewardlist1[indexPath.row].item!.isEmpty){
+                
+                cellreward.iconimage.isHidden = true
+            }else{
+            cellreward.iconimage.image = UIImage(named:"category1")
+            }
             cell2 = cellreward
             
             
@@ -130,6 +165,22 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             cellreward.item.text = rewardlist2[indexPath.row].item
             cellreward.point.text = rewardlist2[indexPath.row].point
             
+           rewardId = rewardlist2[indexPath.row].id!
+            
+            if(employeeobject.position == "editor"){
+              cellreward.delete.urlString = rewardlist2[indexPath.row].id
+            cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
+            }else{
+                
+                cellreward.delete.isHidden = true
+            }
+            
+            if(rewardlist2[indexPath.row].item!.isEmpty){
+                
+                cellreward.iconimage.isHidden = true
+            }else{
+             cellreward.iconimage.image = UIImage(named:"category2")
+            }
             cell2 = cellreward
             
             
@@ -140,6 +191,21 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             cellreward.item.text = rewardlist3[indexPath.row].item
             cellreward.point.text = rewardlist3[indexPath.row].point
             
+            rewardId = rewardlist3[indexPath.row].id!
+            
+            if(employeeobject.position == "editor"){
+              cellreward.delete.urlString = rewardlist3[indexPath.row].id
+            cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
+            }else{
+                
+                cellreward.delete.isHidden = true
+            }
+            if(rewardlist3[indexPath.row].item!.isEmpty){
+                
+                cellreward.iconimage.isHidden = true
+            }else{
+            cellreward.iconimage.image = UIImage(named:"category3")
+            }
             cell2 = cellreward
             
             
@@ -151,6 +217,23 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             cellreward.item.text = rewardlist4[indexPath.row].item
             cellreward.point.text = rewardlist4[indexPath.row].point
             
+            rewardId = rewardlist4[indexPath.row].id!
+            
+            if(employeeobject.position == "editor"){
+            cellreward.delete.urlString = rewardlist4[indexPath.row].id
+            cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
+            }else{
+                 cellreward.delete.isHidden = true
+                
+            }
+            
+            
+            if(rewardlist4[indexPath.row].item!.isEmpty){
+                
+                cellreward.iconimage.isHidden = true
+            }else{
+            cellreward.iconimage.image = UIImage(named:"category4")
+            }
             cell2 = cellreward
             
             
@@ -161,6 +244,37 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             
             cellreward.item.text = rewardlist5[indexPath.row].item
             cellreward.point.text = rewardlist5[indexPath.row].point
+            
+            rewardId = rewardlist5[indexPath.row].id!
+            
+                if(employeeobject.position == "editor"){
+                    
+              cellreward.delete.urlString = rewardlist5[indexPath.row].id
+              cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
+                    
+            }
+                else{
+                    
+                      cellreward.delete.isHidden = true
+            }
+            if(rewardlist5[indexPath.row].item == "Organizer Of the Event/Volunteers"){
+                
+                  cellreward.iconimage.image = UIImage(named:"category51")
+            }
+            
+            if(rewardlist5[indexPath.row].item == "Participant of the Event"){
+                
+                cellreward.iconimage.image = UIImage(named:"category52")
+            }
+            if(rewardlist5[indexPath.row].item == "Supporters of the Event"){
+                
+                cellreward.iconimage.image = UIImage(named:"category53")
+            }
+            
+            if(rewardlist5[indexPath.row].item!.isEmpty){
+                
+                cellreward.iconimage.isHidden = true
+            }
             
             cell2 = cellreward
             
@@ -229,15 +343,26 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         
         if(section == 0){
             cellProfileheader.title.text = "GENERAL"
+            
+            //fetch the total point
+            fetcrewardpoint(email: employeeobject.email!, cellreward: cellProfileheader.totalpoint)
+            
             cellheader = cellProfileheader
         }
         if(section > 0){
             
             cellrewardheader.title.text = "CATEGORY \(section)"
             
+            
+            if(employeeobject.position == "editor"){
+            
             cellrewardheader.addItem.tag = section
             cellrewardheader.addItem.addTarget(self, action: #selector(OpenPopOverAchievement), for: .touchUpInside)
             
+            }else{
+                
+               cellrewardheader.addItem.isHidden = true
+            }
             
             cellheader = cellrewardheader
             
@@ -257,7 +382,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         
         if(indexPath.section > 0){
             
-            rowheight = 80
+            rowheight = 110
         }
         
         return CGFloat(rowheight)
@@ -285,8 +410,9 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         var urlrequest = URLRequest(url: urlComp.url!)
         urlrequest.httpMethod = "GET"
         
-        var rating:String = "100"
-        var numberofraters:String = "0"
+        var rating:String = ""
+        var numberofraters:String = ""
+    
         //execute the request
         
         let task = URLSession.shared.dataTask(with: urlrequest){(data,response,error)  in
@@ -300,7 +426,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
                     
                     rating = json["average"] as! String
                     numberofraters = json["numberofrater"] as! String
-                    
+                
                     DispatchQueue.main.async {
                         
                         
@@ -338,6 +464,76 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         
     }
     
+    
+    func fetcrewardpoint(email:String,cellreward:UILabel){
+        
+        let parameters = ["email" : email  ]
+        
+        let urlComp = NSURLComponents(string: "http://58.27.84.166/mcconline/MCC%20Online%20V3/sense/gettotalreward.php")!
+        
+        var items = [URLQueryItem]()
+        
+        for (key,value) in parameters {
+            items.append(URLQueryItem(name: key, value: value))
+        }
+        
+        items = items.filter{!$0.name.isEmpty}
+        
+        if !items.isEmpty {
+            urlComp.queryItems = items
+        }
+        
+        var urlrequest = URLRequest(url: urlComp.url!)
+        urlrequest.httpMethod = "GET"
+        
+        var reward:String = ""
+       
+        
+        //execute the request
+        
+        let task = URLSession.shared.dataTask(with: urlrequest){(data,response,error)  in
+            
+            if let data = data {
+                
+                do{
+                    
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String : AnyObject]
+                    
+                    
+                    reward = json["reward"] as! String
+                  
+                    
+                    DispatchQueue.main.async {
+                        
+                        
+                       
+                            cellreward.text = "Point:\(reward)"
+                         
+                      
+                    }
+                    
+                    
+                }
+                    
+                    
+                catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+                
+            }
+                
+                
+            else if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            
+        }
+        
+        task.resume()
+        
+        
+    }
     
     func fetchreward(email:String){
         
@@ -379,12 +575,12 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
                         for summaryfromjson in summaryfromjson1 {
                             let rewardobject = rewardmodel()
                             if let item = summaryfromjson["item"] as? String,
-                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"]{
+                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"] as? String{
                                 
                                 
                                 rewardobject.item = item
-                                rewardobject.point = point as? String
-                                rewardobject.id = id as? String
+                                rewardobject.point = point
+                                rewardobject.id = id
                                 
                                 
                                 // print(listttobjects.cabinetid!)
@@ -401,12 +597,12 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
                         for summaryfromjson in summaryfromjson2 {
                             let rewardobject = rewardmodel()
                             if let item = summaryfromjson["item"] as? String,
-                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"]{
+                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"] as? String{
                                 
                                 
                                 rewardobject.item = item
                                 rewardobject.point = point as? String
-                                rewardobject.id = id as? String
+                                rewardobject.id = id
                                 
                                 
                                 // print(listttobjects.cabinetid!)
@@ -424,12 +620,12 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
                         for summaryfromjson in summaryfromjson3 {
                             let rewardobject = rewardmodel()
                             if let item = summaryfromjson["item"] as? String,
-                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"]{
+                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"] as? String{
                                 
                                 
                                 rewardobject.item = item
                                 rewardobject.point = point as? String
-                                rewardobject.id = id as? String
+                                rewardobject.id = id
                                 
                                 
                                 // print(listttobjects.cabinetid!)
@@ -449,12 +645,12 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
                         for summaryfromjson in summaryfromjson4 {
                             let rewardobject = rewardmodel()
                             if let item = summaryfromjson["item"] as? String,
-                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"]{
+                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"] as? String{
                                 
                                 
                                 rewardobject.item = item
                                 rewardobject.point = point as? String
-                                rewardobject.id = id as? String
+                                rewardobject.id = id
                                 
                                 
                                 // print(listttobjects.cabinetid!)
@@ -471,12 +667,12 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
                         for summaryfromjson in summaryfromjson5 {
                             let rewardobject = rewardmodel()
                             if let item = summaryfromjson["item"] as? String,
-                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"]{
+                                let point = summaryfromjson["points"] as? String, let id = summaryfromjson["idemployeeReward"] as? String{
                                 
                                 
                                 rewardobject.item = item
                                 rewardobject.point = point as? String
-                                rewardobject.id = id as? String
+                                rewardobject.id = id
                                 
                                 
                                 // print(listttobjects.cabinetid!)
@@ -517,6 +713,37 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
     
     @objc func OpenPopOverAchievement(sender: UIButton!) {
         
+        if(sender.tag == 1){
+            
+            achievementDropDown.text = ""
+            achievementDropDown.optionArray = ["Zero Medical Certificate"]
+        }
+        
+        if(sender.tag == 2){
+            
+            achievementDropDown.text = ""
+            achievementDropDown.optionArray = ["High Performer Per Division (9-10)","Moderate per Division (7-8)"]
+        }
+        
+        if(sender.tag == 3){
+            
+            achievementDropDown.text = ""
+            achievementDropDown.optionArray = ["360 > 4 TM Award (GLT,GCEO,CIIC,NPC)"]
+        }
+        
+        if(sender.tag == 4){
+            
+            achievementDropDown.text = ""
+            achievementDropDown.optionArray = ["Per 1s Sort,Set in Order, Shine, Standardize,Sustain"]
+        }
+        
+        if(sender.tag == 5){
+            
+            achievementDropDown.text = ""
+            
+            achievementDropDown.optionArray = ["Organizer Of the Event/Volunteers","Participant of the Event","Supporters of the Event"]
+        }
+        
         addnewitemBtn.isEnabled = true
         print(sender.tag)
         addnewitemBtn.tag = sender.tag
@@ -528,8 +755,37 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         self.view.addSubview(blureffect)
         self.view.addSubview(popovernewAchivement)
         self.popovernewAchivement.addSubview(achievementDropDown)
+        self.popovernewAchivement.addSubview(DateReward)
+        DateReward.addTarget(self, action: #selector(datePickerValueChanged), for: UIControlEvents.valueChanged)
       
     }
+    
+    
+    @objc func OpenPopOverDelete(sender: buttonAdditional!) {
+        
+     
+        print(sender.urlString!)
+    
+        
+        popoverDelete.center = view.center
+        deleteOkbtn.urlString = sender.urlString
+        
+       // deleteReward(id: sender.urlString!,email: (Auth.auth().currentUser?.email)!)
+        
+        
+       self.view.addSubview(blureffect)
+        self.view.addSubview(popoverDelete)
+        
+        
+    }
+    
+    
+    @IBAction func deleteActionBtn(_ sender: Any) {
+        
+        deleteReward(id: self.deleteOkbtn.urlString!,email: (Auth.auth().currentUser?.email)!)
+       
+    }
+    
     
     
     @IBAction func closedPopOver(_ sender: Any) {
@@ -541,6 +797,13 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
     @IBAction func cancelPopOver(_ sender: Any) {
         
         popovernewAchivement.removeFromSuperview()
+        blureffect.removeFromSuperview()
+    }
+    
+    
+    @IBAction func cancelPopover2(_ sender: Any) {
+        
+        popoverDelete.removeFromSuperview()
         blureffect.removeFromSuperview()
     }
     
@@ -563,14 +826,38 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
         let email:String = employeeobject.email!
         let updatedby:String = (Auth.auth().currentUser?.email)!
         
-        if(!achievement.isEmpty && !point.isEmpty){
+        
+        
+        
+        if(!achievement.isEmpty && !point.isEmpty && !dateInputStr.isEmpty){
             
-           insertNewReward(employeename: employeename, category: category, point: point, email: email, achievement: achievement, updatedby: updatedby)
+           insertNewReward(employeename: employeename, category: category, point: point, email: email, achievement: achievement, updatedby: updatedby,month: dateInputStr)
             
+        }
+        
+        else{
+            
+            showToast(message: "Please Insert all Field")
+            addnewitemBtn.isEnabled = true
         }
     }
     
-    func insertNewReward(employeename:String,category:String,point:String,email:String,achievement:String,updatedby:String){
+    @objc func datePickerValueChanged (datePicker: UIDatePicker) {
+        
+        let dateformatter = DateFormatter()
+        
+       
+        dateformatter.dateFormat = "YYYY-MM-dd"
+        let strDate = dateformatter.string(from: NSDate() as Date) // You can pass your date here as a parameter to get in a desired format
+      
+       
+        
+        dateLabel.text = strDate
+        dateInputStr = strDate
+        
+    }
+    
+    func insertNewReward(employeename:String,category:String,point:String,email:String,achievement:String,updatedby:String,month:String){
         
         
         let parameters = ["employeename" : employeename,
@@ -578,7 +865,8 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
                           "category":category,
                           "achievement":achievement,
                           "points":point,
-                          "updatedby":updatedby].map { "\($0)=\(String(describing: $1 ))" }
+                          "updatedby":updatedby,
+                           "month":month].map { "\($0)=\(String(describing: $1 ))" }
         
         
         let request = NSMutableURLRequest(url: NSURL(string: "http://58.27.84.166/mcconline/MCC%20Online%20V3/sense/insertuserReward.php")! as URL)
@@ -660,6 +948,98 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             }
             
             
+            
+            
+            print("responseString = \(String(describing: responseString))")
+        }
+        
+        task.resume()
+        
+        
+    }
+    
+    
+    func deleteReward(id:String,email:String){
+        
+        
+        let parameters = ["id" : id,
+                          "email":email,
+                         ].map { "\($0)=\(String(describing: $1 ))" }
+        
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://58.27.84.166/mcconline/MCC%20Online%20V3/sense/deleteuserReward.php")! as URL)
+        request.httpMethod = "POST"
+        let postString = parameters.joined(separator: "&")
+        
+        
+        print(postString)
+        
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        
+        
+        
+        //execute the request
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                
+                
+                return
+            }
+            
+            
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+                
+                
+            }
+            
+          
+            let responseString = String(data: data!, encoding: String.Encoding.utf8)
+            var result:String = ""
+           
+            if let data = data {
+                
+                do{
+                    
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String : AnyObject]
+                    
+                    
+                    result = json["result"] as! String
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.popoverDelete.removeFromSuperview()
+                        self.blureffect.removeFromSuperview()
+                        
+                        self.fetchreward(email: self.employeeobject.email!)
+                    
+                          if(result.elementsEqual("Rating Sucessfully Submitted")){
+                            
+                            
+                            self.showToast(message: "Sucess")
+                            
+                            
+                        
+                          }
+                        
+                        
+                    }
+                    
+                    
+                }
+                    
+                    
+                catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+                
+            }
+            
+
             
             
             print("responseString = \(String(describing: responseString))")

@@ -11,6 +11,7 @@
 		300B327821888569000051EF /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B327721888569000051EF /* RegisterController.swift */; };
 		300E0436215DB8E200FB4EF5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300E0435215DB8E200FB4EF5 /* LoginController.swift */; };
 		301DAB2C218C247400F7D57E /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 301DAB2A218C247300F7D57E /* DLRadioButton.m */; };
+		30363BBD229B1F660052336D /* buttonAdditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30363BBC229B1F660052336D /* buttonAdditional.swift */; };
 		3039061D21899BEA00E163FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3039061C21899BEA00E163FA /* GoogleService-Info.plist */; };
 		3039061E21899BEA00E163FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3039061C21899BEA00E163FA /* GoogleService-Info.plist */; };
 		3039061F21899BEA00E163FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3039061C21899BEA00E163FA /* GoogleService-Info.plist */; };
@@ -88,6 +89,7 @@
 		300E0435215DB8E200FB4EF5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		301DAB2A218C247300F7D57E /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 		301DAB2B218C247300F7D57E /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		30363BBC229B1F660052336D /* buttonAdditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonAdditional.swift; sourceTree = "<group>"; };
 		3039061C21899BEA00E163FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		303906212189E06D00E163FA /* employeemodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeemodel.swift; sourceTree = "<group>"; };
 		303906252189E88100E163FA /* employeecell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeecell.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				30D3C1D7215C98CB008D9904 /* SWRevealViewController.m */,
 				30D3C1A9215C9870008D9904 /* ViewController.swift */,
 				307A51F12293989D00348542 /* profilecell.xib */,
+				30363BBC229B1F660052336D /* buttonAdditional.swift */,
 			);
 			path = senseios;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				307A51FD2294DA0F00348542 /* profileCellheader.swift in Sources */,
 				301DAB2C218C247400F7D57E /* DLRadioButton.m in Sources */,
 				30D3C1E0215CA311008D9904 /* menucontroller2.swift in Sources */,
+				30363BBD229B1F660052336D /* buttonAdditional.swift in Sources */,
 				303906222189E06D00E163FA /* employeemodel.swift in Sources */,
 				30C4168E216478C70056645C /* settingcontroller.swift in Sources */,
 				307A51F22293989D00348542 /* profilecell.swift in Sources */,
