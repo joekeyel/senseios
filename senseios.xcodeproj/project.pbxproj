@@ -10,6 +10,9 @@
 		300268AE218D77BE00D18121 /* selectactivitycontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300268AD218D77BE00D18121 /* selectactivitycontroller.swift */; };
 		300B327821888569000051EF /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B327721888569000051EF /* RegisterController.swift */; };
 		300E0436215DB8E200FB4EF5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300E0435215DB8E200FB4EF5 /* LoginController.swift */; };
+		30172C9522BA792300273DF1 /* notificationmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30172C9422BA792300273DF1 /* notificationmodel.swift */; };
+		30172C9822BA7F3E00273DF1 /* notificationcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30172C9622BA7F3E00273DF1 /* notificationcell.swift */; };
+		30172C9922BA7F3E00273DF1 /* notificationcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30172C9722BA7F3E00273DF1 /* notificationcell.xib */; };
 		301DAB2C218C247400F7D57E /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 301DAB2A218C247300F7D57E /* DLRadioButton.m */; };
 		30363BBD229B1F660052336D /* buttonAdditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30363BBC229B1F660052336D /* buttonAdditional.swift */; };
 		3039061D21899BEA00E163FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3039061C21899BEA00E163FA /* GoogleService-Info.plist */; };
@@ -91,6 +94,9 @@
 		300268AD218D77BE00D18121 /* selectactivitycontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectactivitycontroller.swift; sourceTree = "<group>"; };
 		300B327721888569000051EF /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		300E0435215DB8E200FB4EF5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		30172C9422BA792300273DF1 /* notificationmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationmodel.swift; sourceTree = "<group>"; };
+		30172C9622BA7F3E00273DF1 /* notificationcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationcell.swift; sourceTree = "<group>"; };
+		30172C9722BA7F3E00273DF1 /* notificationcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = notificationcell.xib; sourceTree = "<group>"; };
 		301DAB2A218C247300F7D57E /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 		301DAB2B218C247300F7D57E /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		3020FAA822B1F11F00C3A121 /* senseios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = senseios.entitlements; sourceTree = "<group>"; };
@@ -222,6 +228,8 @@
 				30C0363121E0888800FAA9C6 /* employeesearchcell.swift */,
 				3059AE3122BA17E40089146B /* employeesearchcellrater.swift */,
 				30C0363221E0888800FAA9C6 /* employeesearchcell.xib */,
+				30172C9622BA7F3E00273DF1 /* notificationcell.swift */,
+				30172C9722BA7F3E00273DF1 /* notificationcell.xib */,
 				3059AE2F22BA17CB0089146B /* employeesearchcellrater.xib */,
 				30C0363D21E0C90600FAA9C6 /* Extension.swift */,
 				30C4168B216478490056645C /* searchcontroller.swift */,
@@ -263,6 +271,7 @@
 				307A51F12293989D00348542 /* profilecell.xib */,
 				30363BBC229B1F660052336D /* buttonAdditional.swift */,
 				3059AE2B22B9E2CF0089146B /* SelectRater.swift */,
+				30172C9422BA792300273DF1 /* notificationmodel.swift */,
 			);
 			path = senseios;
 			sourceTree = "<group>";
@@ -432,6 +441,7 @@
 				30FF4CE321EECE1E00811D66 /* selectactivity2.xib in Resources */,
 				307A51FB2294D9C600348542 /* profileCellheader.xib in Resources */,
 				3039061D21899BEA00E163FA /* GoogleService-Info.plist in Resources */,
+				30172C9922BA7F3E00273DF1 /* notificationcell.xib in Resources */,
 				305A9F192190620C0004C77A /* Assets.xcassets in Resources */,
 				30C0363421E0888800FAA9C6 /* employeesearchcell.xib in Resources */,
 				30D3C1AD215C9870008D9904 /* Main.storyboard in Resources */,
@@ -546,6 +556,7 @@
 			files = (
 				30C0363621E09AFE00FAA9C6 /* qrgeneratorcontroller.swift in Sources */,
 				30D3C1DC215C9ACF008D9904 /* homecontroller.swift in Sources */,
+				30172C9822BA7F3E00273DF1 /* notificationcell.swift in Sources */,
 				30C0363321E0888800FAA9C6 /* employeesearchcell.swift in Sources */,
 				307A51FD2294DA0F00348542 /* profileCellheader.swift in Sources */,
 				301DAB2C218C247400F7D57E /* DLRadioButton.m in Sources */,
@@ -558,6 +569,7 @@
 				307A51E92293961E00348542 /* rewardmodel.swift in Sources */,
 				30D3C1AA215C9870008D9904 /* ViewController.swift in Sources */,
 				3059AE2C22B9E2CF0089146B /* SelectRater.swift in Sources */,
+				30172C9522BA792300273DF1 /* notificationmodel.swift in Sources */,
 				30FE8A9C218E8C0000D7F830 /* selectsmiley.swift in Sources */,
 				30938821216AE5FC0070A17C /* mapscontroller.swift in Sources */,
 				30D3C1A8215C9870008D9904 /* AppDelegate.swift in Sources */,

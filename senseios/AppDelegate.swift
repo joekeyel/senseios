@@ -97,13 +97,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
      
             //if user not login to firebase will go to the start page
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
             //                let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "startpage") as! startcontroller
         
         
          if Auth.auth().currentUser != nil {
+            //if user  login to firebase will go to the notification
+            print("did taps")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "reveal") as! SWRevealViewController
-        
+            
+            
+            let initialViewController3 = storyboard.instantiateViewController(withIdentifier: "notification") as! notification
+            
+            
+            let navigationController:UINavigationController = UINavigationController(rootViewController: initialViewController3)
+            
+            initialViewController2.pushFrontViewController(navigationController, animated: true)
+            
+            
+            
             
             if let window = self.window, let rootViewController = window.rootViewController {
                 var currentController = rootViewController
@@ -114,6 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
          }else{
+            
+              let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "login") as! LoginController
             

@@ -1986,6 +1986,10 @@ Please rate from 0 (Extremely Difficult) to 10 (Extremely Easy)</string>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CAf-9I-FPW">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZNI-tf-0pI" id="BgW-ep-H1C"/>
+                                    <outlet property="delegate" destination="ZNI-tf-0pI" id="1pD-bP-NNF"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2002,6 +2006,7 @@ Please rate from 0 (Extremely Difficult) to 10 (Extremely Easy)</string>
                     </navigationItem>
                     <connections>
                         <outlet property="menubutton" destination="nin-yc-vS1" id="Ace-1X-sVV"/>
+                        <outlet property="notificationtable" destination="CAf-9I-FPW" id="KNp-dS-vsY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZCh-NO-5QV" userLabel="First Responder" sceneMemberID="firstResponder"/>
