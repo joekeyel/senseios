@@ -38,6 +38,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
     
     var rewardId:String = ""
     var dateInputStr:String = ""
+    var userposition = ""
     
     
     
@@ -140,7 +141,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             cellreward.point.text = rewardlist1[indexPath.row].point
             
             
-            if(employeeobject.position == "editor"){
+            if(self.userposition == "editor"){
             cellreward.delete.indexPath = indexPath.row
             cellreward.delete.urlString = rewardlist1[indexPath.row].id
             cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
@@ -167,7 +168,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             
            rewardId = rewardlist2[indexPath.row].id!
             
-            if(employeeobject.position == "editor"){
+            if(self.userposition == "editor"){
               cellreward.delete.urlString = rewardlist2[indexPath.row].id
             cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
             }else{
@@ -193,7 +194,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             
             rewardId = rewardlist3[indexPath.row].id!
             
-            if(employeeobject.position == "editor"){
+            if(self.userposition == "editor"){
               cellreward.delete.urlString = rewardlist3[indexPath.row].id
             cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
             }else{
@@ -219,7 +220,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             
             rewardId = rewardlist4[indexPath.row].id!
             
-            if(employeeobject.position == "editor"){
+            if(self.userposition == "editor"){
             cellreward.delete.urlString = rewardlist4[indexPath.row].id
             cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
             }else{
@@ -247,7 +248,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             
             rewardId = rewardlist5[indexPath.row].id!
             
-                if(employeeobject.position == "editor"){
+                if(self.userposition == "editor"){
                     
               cellreward.delete.urlString = rewardlist5[indexPath.row].id
               cellreward.delete.addTarget(self, action: #selector(OpenPopOverDelete), for: .touchUpInside)
@@ -354,7 +355,7 @@ class RewardActivityController: UIViewController,UITableViewDelegate,UITableView
             cellrewardheader.title.text = "CATEGORY \(section)"
             
             
-            if(employeeobject.position == "editor"){
+            if(self.userposition == "editor"){
             
             cellrewardheader.addItem.tag = section
             cellrewardheader.addItem.addTarget(self, action: #selector(OpenPopOverAchievement), for: .touchUpInside)

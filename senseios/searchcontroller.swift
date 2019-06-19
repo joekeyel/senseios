@@ -14,7 +14,7 @@ import AVFoundation
 
 
 
-class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class searchcontroller: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
    
     @IBOutlet weak var searchbar: UISearchBar!
       let employeeobject = employeemodel()
@@ -28,7 +28,8 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var searchbtn: UIButton!
    
     
-    
+    var regid:String = "";
+    var userposition = "";
     
     
     var listemployee:[employeemodel]? = []
@@ -118,11 +119,20 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         super.viewDidLoad()
      
      
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                print("Error fetching remote instange ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+                
+                self.regid = result.token
+                
+                self.checkuserexist(email:    (Auth.auth().currentUser?.email)!, uid:    (Auth.auth().currentUser?.uid)!,regid: result.token)
+                
+            }
+        }
        
-      
         
-        checkuserexist(email:    (Auth.auth().currentUser?.email)!, uid:    (Auth.auth().currentUser?.uid)!)
-      
         
         //setup for navigation
         menubutton.target = self.revealViewController()
@@ -143,6 +153,8 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
         
         fetchsummary(query:(Auth.auth().currentUser?.email)!)
+        
+       
         
         
     }
@@ -203,6 +215,7 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
 
 
             initialViewController2.employeeobject = objectEmployee
+            initialViewController2.userposition = self.userposition
 
             self.navigationController?.pushViewController(initialViewController2, animated: true)
 
@@ -215,7 +228,6 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
     func fetchsummary(query:String){
         
       
-        
         let parameters = ["query" : query  ]
         
         let urlComp = NSURLComponents(string: "http://58.27.84.166/mcconline/MCC%20Online%20V3/sense/employeelist.php")!
@@ -263,8 +275,11 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
                                 employeeobject.uid = uid as? String
                                 employeeobject.email = email
                                 employeeobject.regid = regid as? String
-                                employeeobject.position = position as? String
                                 
+                                if(email == Auth.auth().currentUser?.email){
+                                employeeobject.position = position as? String
+                                    self.userposition = position as? String ?? ""
+                                }
                                 // print(listttobjects.cabinetid!)
                             }
                             self.listemployee?.append(employeeobject)
@@ -376,10 +391,11 @@ class feedscontroller: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
     }
 
-    func checkuserexist(email:String,uid:String){
+    func checkuserexist(email:String,uid:String,regid:String){
         
         let parameters = ["email":email,
                           "uid":uid,
+                          "regid":regid
                          ].map { "\($0)=\(String(describing: $1 ))" }
         
         

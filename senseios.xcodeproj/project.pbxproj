@@ -22,6 +22,10 @@
 		303906272189E88100E163FA /* employeecell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303906252189E88100E163FA /* employeecell.swift */; };
 		303906282189E88100E163FA /* employeecell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303906252189E88100E163FA /* employeecell.swift */; };
 		3039062A218A86DB00E163FA /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30390629218A86DB00E163FA /* libSDWebImage.a */; };
+		3059AE2C22B9E2CF0089146B /* SelectRater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059AE2B22B9E2CF0089146B /* SelectRater.swift */; };
+		3059AE2E22B9EADC0089146B /* notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059AE2D22B9EADC0089146B /* notification.swift */; };
+		3059AE3022BA17CB0089146B /* employeesearchcellrater.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3059AE2F22BA17CB0089146B /* employeesearchcellrater.xib */; };
+		3059AE3222BA17E40089146B /* employeesearchcellrater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059AE3122BA17E40089146B /* employeesearchcellrater.swift */; };
 		305A9F192190620C0004C77A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 305A9F182190620C0004C77A /* Assets.xcassets */; };
 		307A51E72293939800348542 /* RewardActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A51E62293939800348542 /* RewardActivityController.swift */; };
 		307A51E92293961E00348542 /* rewardmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A51E82293961E00348542 /* rewardmodel.swift */; };
@@ -44,7 +48,7 @@
 		30C0363E21E0C90600FAA9C6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0363D21E0C90600FAA9C6 /* Extension.swift */; };
 		30C41688216459010056645C /* menucell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C41687216459010056645C /* menucell.swift */; };
 		30C4168A216477E20056645C /* profilecontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C41689216477E20056645C /* profilecontroller.swift */; };
-		30C4168C216478490056645C /* feedscontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4168B216478490056645C /* feedscontroller.swift */; };
+		30C4168C216478490056645C /* searchcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4168B216478490056645C /* searchcontroller.swift */; };
 		30C4168E216478C70056645C /* settingcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C4168D216478C70056645C /* settingcontroller.swift */; };
 		30D3C1A8215C9870008D9904 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3C1A7215C9870008D9904 /* AppDelegate.swift */; };
 		30D3C1AA215C9870008D9904 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3C1A9215C9870008D9904 /* ViewController.swift */; };
@@ -89,11 +93,16 @@
 		300E0435215DB8E200FB4EF5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		301DAB2A218C247300F7D57E /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 		301DAB2B218C247300F7D57E /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		3020FAA822B1F11F00C3A121 /* senseios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = senseios.entitlements; sourceTree = "<group>"; };
 		30363BBC229B1F660052336D /* buttonAdditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonAdditional.swift; sourceTree = "<group>"; };
 		3039061C21899BEA00E163FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		303906212189E06D00E163FA /* employeemodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeemodel.swift; sourceTree = "<group>"; };
 		303906252189E88100E163FA /* employeecell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeecell.swift; sourceTree = "<group>"; };
 		30390629218A86DB00E163FA /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3059AE2B22B9E2CF0089146B /* SelectRater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRater.swift; sourceTree = "<group>"; };
+		3059AE2D22B9EADC0089146B /* notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notification.swift; sourceTree = "<group>"; };
+		3059AE2F22BA17CB0089146B /* employeesearchcellrater.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = employeesearchcellrater.xib; sourceTree = "<group>"; };
+		3059AE3122BA17E40089146B /* employeesearchcellrater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = employeesearchcellrater.swift; sourceTree = "<group>"; };
 		305A9F182190620C0004C77A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		307A51E62293939800348542 /* RewardActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardActivityController.swift; sourceTree = "<group>"; };
 		307A51E82293961E00348542 /* rewardmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rewardmodel.swift; sourceTree = "<group>"; };
@@ -116,7 +125,7 @@
 		30C0363D21E0C90600FAA9C6 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		30C41687216459010056645C /* menucell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menucell.swift; sourceTree = "<group>"; };
 		30C41689216477E20056645C /* profilecontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilecontroller.swift; sourceTree = "<group>"; };
-		30C4168B216478490056645C /* feedscontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedscontroller.swift; sourceTree = "<group>"; };
+		30C4168B216478490056645C /* searchcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchcontroller.swift; sourceTree = "<group>"; };
 		30C4168D216478C70056645C /* settingcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingcontroller.swift; sourceTree = "<group>"; };
 		30D3C1A4215C9870008D9904 /* senseios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = senseios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30D3C1A7215C9870008D9904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +211,7 @@
 		30D3C1A6215C9870008D9904 /* senseios */ = {
 			isa = PBXGroup;
 			children = (
+				3020FAA822B1F11F00C3A121 /* senseios.entitlements */,
 				30D3C1A7215C9870008D9904 /* AppDelegate.swift */,
 				305A9F182190620C0004C77A /* Assets.xcassets */,
 				30D3C1D5215C98CA008D9904 /* boilerplate-Bridging-Header.h */,
@@ -210,9 +220,11 @@
 				303906252189E88100E163FA /* employeecell.swift */,
 				303906212189E06D00E163FA /* employeemodel.swift */,
 				30C0363121E0888800FAA9C6 /* employeesearchcell.swift */,
+				3059AE3122BA17E40089146B /* employeesearchcellrater.swift */,
 				30C0363221E0888800FAA9C6 /* employeesearchcell.xib */,
+				3059AE2F22BA17CB0089146B /* employeesearchcellrater.xib */,
 				30C0363D21E0C90600FAA9C6 /* Extension.swift */,
-				30C4168B216478490056645C /* feedscontroller.swift */,
+				30C4168B216478490056645C /* searchcontroller.swift */,
 				3039061C21899BEA00E163FA /* GoogleService-Info.plist */,
 				30D3C1DB215C9ACF008D9904 /* homecontroller.swift */,
 				30D3C1B3215C9871008D9904 /* Info.plist */,
@@ -221,6 +233,7 @@
 				30D3C1AB215C9870008D9904 /* Main.storyboard */,
 				30938820216AE5FC0070A17C /* mapscontroller.swift */,
 				30C41687216459010056645C /* menucell.swift */,
+				3059AE2D22B9EADC0089146B /* notification.swift */,
 				30D3C1DF215CA311008D9904 /* menucontroller2.swift */,
 				307A51F02293989D00348542 /* profilecell.swift */,
 				307A51F42293997C00348542 /* profilecell.xib */,
@@ -249,6 +262,7 @@
 				30D3C1A9215C9870008D9904 /* ViewController.swift */,
 				307A51F12293989D00348542 /* profilecell.xib */,
 				30363BBC229B1F660052336D /* buttonAdditional.swift */,
+				3059AE2B22B9E2CF0089146B /* SelectRater.swift */,
 			);
 			path = senseios;
 			sourceTree = "<group>";
@@ -368,6 +382,11 @@
 					30D3C1A3215C9870008D9904 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					30D3C1B7215C9872008D9904 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -408,6 +427,7 @@
 				307A51F922939E2000348542 /* rewardcellheader.xib in Resources */,
 				307A51F32293989D00348542 /* profilecell.xib in Resources */,
 				307A51F52293997C00348542 /* profilecell.xib in Resources */,
+				3059AE3022BA17CB0089146B /* employeesearchcellrater.xib in Resources */,
 				30D3C1B2215C9871008D9904 /* LaunchScreen.storyboard in Resources */,
 				30FF4CE321EECE1E00811D66 /* selectactivity2.xib in Resources */,
 				307A51FB2294D9C600348542 /* profileCellheader.xib in Resources */,
@@ -530,16 +550,19 @@
 				307A51FD2294DA0F00348542 /* profileCellheader.swift in Sources */,
 				301DAB2C218C247400F7D57E /* DLRadioButton.m in Sources */,
 				30D3C1E0215CA311008D9904 /* menucontroller2.swift in Sources */,
+				3059AE2E22B9EADC0089146B /* notification.swift in Sources */,
 				30363BBD229B1F660052336D /* buttonAdditional.swift in Sources */,
 				303906222189E06D00E163FA /* employeemodel.swift in Sources */,
 				30C4168E216478C70056645C /* settingcontroller.swift in Sources */,
 				307A51F22293989D00348542 /* profilecell.swift in Sources */,
 				307A51E92293961E00348542 /* rewardmodel.swift in Sources */,
 				30D3C1AA215C9870008D9904 /* ViewController.swift in Sources */,
+				3059AE2C22B9E2CF0089146B /* SelectRater.swift in Sources */,
 				30FE8A9C218E8C0000D7F830 /* selectsmiley.swift in Sources */,
 				30938821216AE5FC0070A17C /* mapscontroller.swift in Sources */,
 				30D3C1A8215C9870008D9904 /* AppDelegate.swift in Sources */,
-				30C4168C216478490056645C /* feedscontroller.swift in Sources */,
+				3059AE3222BA17E40089146B /* employeesearchcellrater.swift in Sources */,
+				30C4168C216478490056645C /* searchcontroller.swift in Sources */,
 				30D3C1D8215C98CB008D9904 /* SWRevealViewController.m in Sources */,
 				307A51F822939E2000348542 /* rewardcellheader.swift in Sources */,
 				30C0363821E0A0E000FAA9C6 /* qrgeneratorimage.swift in Sources */,
@@ -734,6 +757,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = senseios/senseios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XUR2D2723B;
 				INFOPLIST_FILE = "$(SRCROOT)/senseios/Info.plist";
@@ -757,6 +781,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = senseios/senseios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XUR2D2723B;
 				INFOPLIST_FILE = "$(SRCROOT)/senseios/Info.plist";

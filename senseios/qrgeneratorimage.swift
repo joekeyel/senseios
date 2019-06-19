@@ -44,5 +44,17 @@ class qrgeneratorimage: UIViewController {
     }
     
    
-
+    @IBAction func gotoselectrater(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "selectrater") as! SelectRater
+        
+        
+        initialViewController2.activity = activity
+        initialViewController2.activityremark = activityremark
+        
+        self.navigationController?.pushViewController(initialViewController2, animated: true)
+    }
+    
 }

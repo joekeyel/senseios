@@ -16,6 +16,7 @@ class startpagecontroller: UIViewController {
     
     @IBOutlet weak var menubutton: UIBarButtonItem!
     
+    var pushnotification:Bool = false
 
     @IBOutlet weak var getstarted: UIButton!
     override func viewDidLoad() {
