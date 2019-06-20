@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if (notificationOption as? [String: AnyObject]) != nil{
             
             
-            (window?.rootViewController as? startpagecontroller)?.pushnotification = true
+            (window?.rootViewController as? LoginController)?.pushnotification = true
             
         }
         
@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
          if Auth.auth().currentUser != nil {
             //if user  login to firebase will go to the notification
-            print("did taps")
+      
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "reveal") as! SWRevealViewController

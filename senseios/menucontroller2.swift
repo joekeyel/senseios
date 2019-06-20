@@ -13,7 +13,7 @@ class menucontroller2: UIViewController,UITableViewDataSource,UITableViewDelegat
   
     @IBOutlet weak var profileimage: UIImageView!
     
-    var tableitem = ["Home","Search","Profile","Generate QR","Maps","Notification-1","Sign Out"];
+    var tableitem = ["Home","Search","Profile","Generate QR","Maps","Notification","Sign Out"];
     
 
     override func viewDidLoad() {

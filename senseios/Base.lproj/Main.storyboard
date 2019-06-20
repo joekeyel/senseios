@@ -27,7 +27,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jtu-G9-hra">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jtu-G9-hra">
                                 <rect key="frame" x="20" y="178" width="335" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3Z7-Xt-2n6"/>
@@ -249,7 +249,6 @@
                     </view>
                     <connections>
                         <segue destination="VZl-uo-D9i" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="x4e-Ni-9xN"/>
-                        <segue destination="gPU-Ud-daH" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="UWX-fM-oEf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -346,7 +345,7 @@
                         <segue destination="jt4-7M-5Nq" kind="custom" identifier="Maps" customClass="SWRevealViewControllerSeguePushController" id="GFG-kO-yKd"/>
                         <segue destination="6NP-Q8-n1G" kind="custom" identifier="Home" customClass="SWRevealViewControllerSeguePushController" id="bwm-qj-gDT"/>
                         <segue destination="OhG-hN-Nqp" kind="custom" identifier="Generate QR" customClass="SWRevealViewControllerSeguePushController" id="p6Y-h5-qUR"/>
-                        <segue destination="03T-EB-q6d" kind="custom" identifier="Notification-1" customClass="SWRevealViewControllerSeguePushController" id="MM0-ra-Q6p"/>
+                        <segue destination="03T-EB-q6d" kind="custom" identifier="Notification" customClass="SWRevealViewControllerSeguePushController" id="MM0-ra-Q6p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PjP-PA-08r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -564,7 +563,7 @@
         <!--Searchcontroller-->
         <scene sceneID="GKM-N7-vaf">
             <objects>
-                <viewController id="FgP-sG-wMJ" customClass="searchcontroller" customModule="senseios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchemployee" id="FgP-sG-wMJ" customClass="searchcontroller" customModule="senseios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NVx-s4-JnM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2091,7 +2090,6 @@ Please rate from 0 (Extremely Difficult) to 10 (Extremely Easy)</string>
         <image name="yellowworkshop" width="160" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jYX-LK-4oQ"/>
-        <segue reference="KFJ-eL-fjE"/>
+        <segue reference="V5y-Ey-BPw"/>
     </inferredMetricsTieBreakers>
 </document>

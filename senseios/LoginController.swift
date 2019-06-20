@@ -22,6 +22,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var appicon: UIImageView!
     
     var msgfromregister:String = ""
+    var pushnotification:Bool = false
     var handle: AuthStateDidChangeListenerHandle?
     
     
@@ -45,10 +46,7 @@ class LoginController: UIViewController {
             showToast(message: msgfromregister)
         
 
-       //this part to move the view above the keyboard when keyboard is showed up
-        
-//       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+       
        
         
      
@@ -59,13 +57,7 @@ class LoginController: UIViewController {
         
     }
     
-//    override func viewDidDisappear(_ animated: Bool) {
-//
-//        NotificationCenter.default.removeObserver(NSNotification.Name.UIKeyboardWillHide as NSObject)
-//
-//        NotificationCenter.default.removeObserver(NSNotification.Name.UIKeyboardWillShow as NSObject)
-//
-//    }
+
 
     @IBAction func loginactioN(_ sender: Any) {
         
@@ -76,25 +68,38 @@ class LoginController: UIViewController {
                                    self.showToast(message: error.localizedDescription)
                 }
                 else {
-                    print("User signed in!")
+                  
                     if((Auth.auth().currentUser?.isEmailVerified)!){
                         
-                            print("Email sent")
-                                               self.showToast(message: "Verification Email has been sent")
+                        
+                        
                             
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "reveal") as! SWRevealViewController
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "reveal") as! SWRevealViewController
+                        var initialViewController3 = UIViewController()
+                        
+                        
+                        if(self.pushnotification){
+                            initialViewController3 = storyboard.instantiateViewController(withIdentifier: "notification") as! notification
+                        }
                             
+                        else{
                             
+                            initialViewController3 = storyboard.instantiateViewController(withIdentifier: "searchemployee") as! searchcontroller
                             
-                            self.present(initialViewController2, animated: true)
+                        }
+                        let navigationController:UINavigationController = UINavigationController(rootViewController: initialViewController3)
+                        
+                        initialViewController2.pushFrontViewController(navigationController, animated: true)
+                        
+                        self.present(initialViewController2, animated: true)
                             
                             
                     
                         
                         //At this point, the user will be taken to the next screen
                     }else{
-                        self.showToast(message: "Please email verify your account first")
+                        self.showToast(message: "Please email-verify your account first")
                         
                     }
                     
@@ -118,30 +123,7 @@ class LoginController: UIViewController {
     }
     
     
-//    @objc func keyboardWillShow(notification: NSNotification) {
-//
-//
-//         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-//
-//            let keyboardRectangle = keyboardFrame.cgRectValue
-//            let loginbuttony = loginbutton.frame.origin.y
-//            let framey = view.frame.size.height
-//            let distancemove = framey - (loginbuttony)-(keyboardRectangle.height)
-//            view.frame.origin.y =  -distancemove
-//
-//            //print(loginbuttony)
-//            return
-//        }
-//
-//
-//
-//    }
-//
-//    @objc func keyboardWillHide(notification: NSNotification){
-//        print("keyboardWillHide")
-//
-//        view.frame.origin.y = 0
-//    }
+
     
     //this is when user tap to dismiss keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -160,19 +142,45 @@ class LoginController: UIViewController {
   
     override func viewWillAppear(_ animated: Bool) {
        handle =  Auth.auth().addStateDidChangeListener { (auth, user) in
-            
+        
+       
+
             if Auth.auth().currentUser != nil {
+                
+                 if((Auth.auth().currentUser?.isEmailVerified)!){
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "reveal") as! SWRevealViewController
+                var initialViewController3 = UIViewController()
                 
                 
+                if(self.pushnotification){
+                    initialViewController3 = storyboard.instantiateViewController(withIdentifier: "notification") as! notification
+                }
+                    
+                else{
+                    
+                    initialViewController3 = storyboard.instantiateViewController(withIdentifier: "searchemployee") as! searchcontroller
+                    
+                }
+                let navigationController:UINavigationController = UINavigationController(rootViewController: initialViewController3)
+                
+                initialViewController2.pushFrontViewController(navigationController, animated: true)
                 
                 self.present(initialViewController2, animated: true)
+                
+                
             }else {
-                // No user is signed in.
-                // ...
+                
+                    self.showToast(message: "Please email-verify your account first")
             }
+        
+        }
+        
+        else{
+            
+             
+        }
           
         }
        

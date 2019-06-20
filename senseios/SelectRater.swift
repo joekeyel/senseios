@@ -369,7 +369,7 @@ class SelectRater: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         if(result == 1){
                             
                             buttonview.isHidden = false
-                            buttonview.setImage(UIImage(named:"notification"), for: .normal)
+                            buttonview.setImage(UIImage(named:"correct"), for: .normal)
                             buttonview.setTitle("", for: .normal)
                             buttonview.isEnabled = false
                             

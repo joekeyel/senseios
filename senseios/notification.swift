@@ -58,6 +58,7 @@ class notification: UIViewController,UITableViewDelegate,UITableViewDataSource {
           employeeobject.name = notificationlist![indexPath.row].employeename
           employeeobject.staffid = notificationlist![indexPath.row].staffid
           employeeobject.email = notificationlist![indexPath.row].sender
+        employeeobject.uid = ""
         
         initialViewController2.employeeinfo = employeeobject
         
